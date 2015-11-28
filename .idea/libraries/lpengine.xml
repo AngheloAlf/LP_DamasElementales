@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="lpengine">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/com/tlp/lpengine.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
