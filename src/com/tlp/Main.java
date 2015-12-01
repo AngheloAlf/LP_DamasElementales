@@ -1,8 +1,10 @@
+import com.tlp.Ficha;
 import lp.motor.Application;
 import lp.motor.Context;
 import lp.motor.MouseHandler;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Main implements Context
 {
@@ -20,8 +22,8 @@ public class Main implements Context
 
         // por ejemplo imprimir algo si el mouse está cerca de la esquina superior izquierda:
         pos = mouseHandler.getMousePosition();
-        //if (pos.x < 200 && pos.y < 200)
-        //System.out.println(pos);
+        /*if (pos.x < 200 && pos.y < 200)
+        System.out.println(pos);*/
     }
     public void tablero(Graphics p)
     {   boolean black=false;
@@ -40,19 +42,21 @@ public class Main implements Context
         }
     }
     @Override
-    public void render(Graphics graphics)
-    {
+    public void render(Graphics graphics) {
         // aquí, y solo aquí, puede dibujar cosas en la pantalla.
         tablero(graphics);
         // por ejemplo dibujar un círculo verde:
-        graphics.setColor(Color.BLUE);
+        graphics.setColor(Color.GREEN);
         graphics.fillOval(pos.x, pos.y, 30, 30);
+
+        Ficha.HacerListaFichas(graphics);
+
 
     }
 
     public static void main(String[] args)
     {
         // el método main solo se encargará de iniciar el sistema.
-        Application.start(600, 600, "Damas_Elementales_Elepé", 60, new Main());
+        Application.start(600, 600, "Pokemon", 60, new Main());
     }
 }
