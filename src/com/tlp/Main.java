@@ -1,6 +1,7 @@
 import com.tlp.Ficha;
 import lp.motor.Application;
 import lp.motor.Context;
+import lp.motor.Element;
 import lp.motor.MouseHandler;
 
 import java.awt.*;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 public class Main implements Context
 {
     private Point pos;
+    private ArrayList<ArrayList<Ficha>> fichitas = Ficha.HacerListaFichas();
     public Main()
     {
         // aquí puede inicializar valores y crear los objetos de juego.
@@ -41,17 +43,40 @@ public class Main implements Context
             }
         }
     }
+
+    public void DibujarFichas(Graphics graphics)
+    {
+        Element.Type[] c =  Element.Type.values();
+        for (ArrayList<Ficha> fichaJ : fichitas)
+        {
+            for (Ficha fichaIteracion: fichaJ)
+            {
+                if (fichaIteracion.GetType() == c[0])
+                {
+                    graphics.setColor(Color.RED);
+                }
+                if (fichaIteracion.GetType() == c[1])
+                {
+                    graphics.setColor(Color.BLUE);
+                }
+                if (fichaIteracion.GetType() == c[2])
+                {
+                    graphics.setColor(Color.GREEN);
+                }
+                graphics.fillOval(fichaIteracion.GetX(), fichaIteracion.GetY(), 30, 30);
+            }
+        }
+    }
     @Override
-    public void render(Graphics graphics) {
+    public void render(Graphics graphics)
+    {
         // aquí, y solo aquí, puede dibujar cosas en la pantalla.
         tablero(graphics);
         // por ejemplo dibujar un círculo verde:
-        graphics.setColor(Color.GREEN);
-        graphics.fillOval(pos.x, pos.y, 30, 30);
+        //graphics.setColor(Color.GREEN);
+        //graphics.fillOval(pos.x, pos.y, 30, 30);
 
-        Ficha.HacerListaFichas(graphics);
-
-
+        DibujarFichas(graphics);
     }
 
     public static void main(String[] args)

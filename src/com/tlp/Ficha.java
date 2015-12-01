@@ -5,47 +5,81 @@ import lp.motor.Element;
 import java.awt.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by nontraxx on 27-11-15.
  */
 public class Ficha {
-    int posx,posy;
+    int posx, posy;
     Element.Type tipo;
-    Graphics pant;
 
-    public Ficha(Graphics g,int x, int y)
+    public Ficha(int x, int y, Element.Type tipo)
     {
-        this.pant=g;
+        this.tipo=tipo;
         this.posx=x;
         this.posy=y;
     }
 
-    public static ArrayList<ArrayList<Ficha>> HacerListaFichas(Graphics graphics)
+    public Element.Type GetType()
+    {
+        return this.tipo;
+    }
+
+    public int GetX()
+    {
+        return this.posx;
+    }
+
+    public int GetY()
+    {
+        return this.posy;
+    }
+
+    public void SetType(Element.Type tipo)
+    {
+        this.tipo = tipo;
+    }
+
+    public void SetPos(int posx, int posy)
+    {
+        this.posx = posx;
+        this.posy = posy;
+    }
+
+
+    public static ArrayList<ArrayList<Ficha>> HacerListaFichas()
     {
         ArrayList<Ficha> fichasJ1 = new ArrayList<Ficha>();
         ArrayList<Ficha> fichasJ2 = new ArrayList<Ficha>();
         int contadorX = 75;
         int contadorY = 15;
         Ficha wea;
-        for (int i = 0; i < 20; i++) {
-            graphics.setColor(Color.BLACK);
-            wea = new Ficha(graphics, contadorX, contadorY);
+        Random rand = new Random();
+        Element.Type[] c =  Element.Type.values();
+        int randomNumber;
+
+        for (int i = 0; i < 20; i++)
+        {
+            randomNumber = rand.nextInt(3);
+            wea = new Ficha(contadorX, contadorY, c[randomNumber]);
             fichasJ1.add(wea);
 
-            graphics.setColor(Color.WHITE);
-            wea = new Ficha(graphics, contadorX, contadorY);
+            randomNumber = rand.nextInt(3);
+            wea = new Ficha(contadorX, contadorY+360, c[randomNumber]);
             fichasJ2.add(wea);
 
             contadorX += 120;
             if ((i + 1) % 5 == 0) {
-                contadorY += 120;
+                contadorY += 60;
             }
 
-            if (((i+1) % 15 == 0) || ((i + 1) % 5 == 0)) {
+            if ((i == 14) || (i == 4))
+            {
                 contadorX = 15;
             } else {
-                if ((i+1) % 10 == 0){
+                if ((i == 9))
+                {
                     contadorX = 75;
                 }
             }
@@ -55,4 +89,5 @@ public class Ficha {
         fichitas.add(fichasJ2);
         return fichitas;
     }
+
 }
