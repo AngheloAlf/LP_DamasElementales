@@ -1,4 +1,5 @@
-import com.tlp.Ficha;
+import com.tlp.FichasTipos;
+import com.tlp.FichasPowerUps;
 import lp.motor.Application;
 import lp.motor.Context;
 import lp.motor.Element;
@@ -7,10 +8,12 @@ import lp.motor.MouseHandler;
 import java.awt.*;
 import java.util.ArrayList;
 
+
 public class Main implements Context
 {
     private Point pos;
-    private ArrayList<ArrayList<Ficha>> fichitas = Ficha.HacerListaFichas();
+    private ArrayList<ArrayList<FichasTipos>> fichitas = FichasTipos.HacerListaFichas();
+    private FichasTipos datos = new FichasTipos(pos, Element.Type.values()[0]);
     public Main()
     {
         // aquí puede inicializar valores y crear los objetos de juego.
@@ -24,8 +27,24 @@ public class Main implements Context
 
         // por ejemplo imprimir algo si el mouse está cerca de la esquina superior izquierda:
         pos = mouseHandler.getMousePosition();
-        /*if (pos.x < 200 && pos.y < 200)
-        System.out.println(pos);*/
+        if (mouseHandler.isButtonPressed())
+        {
+            if(!datos.IsPressed()) {
+                FichasTipos aux  = FichasTipos.GetFichasTipos(fichitas, pos.x, pos.y);
+                if (aux != null)
+                {
+                    datos.SetPos(aux.GetPos());
+                    datos.SetType(aux.GetType());
+                    datos.Press(true);
+                }
+            } else {
+                System.out.println("else");
+                //datos.Press(false);
+
+            }
+        }
+
+        //if (pos.x < 200 && pos.y < 200) System.out.println(pos);
     }
     public void tablero(Graphics p)
     {   boolean black=false;
@@ -46,27 +65,27 @@ public class Main implements Context
 
     public void DibujarFichas(Graphics graphics)
     {
-        Element.Type[] c =  Element.Type.values();
-        for (ArrayList<Ficha> fichaJ : fichitas)
+        for (ArrayList<FichasTipos> fichaJ : fichitas)
         {
-            for (Ficha fichaIteracion: fichaJ)
+            for (FichasTipos fichaIteracion: fichaJ)
             {
-                if (fichaIteracion.GetType() == c[0])
+                graphics.setColor(FichasTipos.GetColor(fichaIteracion));
+                if (!fichaIteracion.IsPressed())
                 {
-                    graphics.setColor(Color.RED);
+                    graphics.fillOval(fichaIteracion.GetPos().x, fichaIteracion.GetPos().y, 30, 30);
                 }
-                if (fichaIteracion.GetType() == c[1])
-                {
-                    graphics.setColor(Color.BLUE);
-                }
-                if (fichaIteracion.GetType() == c[2])
-                {
-                    graphics.setColor(Color.GREEN);
-                }
-                graphics.fillOval(fichaIteracion.GetX(), fichaIteracion.GetY(), 30, 30);
             }
         }
     }
+
+    public void DibujarFichaMouse(Graphics graphics){
+        if (datos.IsPressed())
+        {
+            graphics.setColor(FichasTipos.GetColor(datos));
+            graphics.fillOval(pos.x, pos.y, 30, 30);
+        }
+    }
+
     @Override
     public void render(Graphics graphics)
     {
@@ -77,6 +96,9 @@ public class Main implements Context
         //graphics.fillOval(pos.x, pos.y, 30, 30);
 
         DibujarFichas(graphics);
+
+        DibujarFichaMouse(graphics);
+
     }
 
     public static void main(String[] args)
