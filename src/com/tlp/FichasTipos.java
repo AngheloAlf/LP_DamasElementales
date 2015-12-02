@@ -115,18 +115,18 @@ public class FichasTipos extends Ficha {
         return null;
     }
 
-    public static Color GetColor(FichasTipos fichaIteracion)
+    public Color GetColor()
     {
         Element.Type[] c =  Element.Type.values();
-        if (fichaIteracion.GetType() == c[0])
+        if (this.GetType() == c[0])
         {
             return Color.RED;
         }
-        if (fichaIteracion.GetType() == c[1])
+        if (this.GetType() == c[1])
         {
             return Color.BLUE;
         }
-        if (fichaIteracion.GetType() == c[2])
+        if (this.GetType() == c[2])
         {
             return Color.GREEN;
         }

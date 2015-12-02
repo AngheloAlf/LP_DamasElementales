@@ -38,6 +38,7 @@ public class Main implements Context
                 }
             } else {
                 System.out.println("else");
+
                 //datos.Press(false);
 
             }
@@ -62,26 +63,43 @@ public class Main implements Context
         }
     }
 
+    public void DrawFicha(Graphics graphics, FichasTipos fichaIteracion, boolean j1, Point fichaPos)
+    {
+        graphics.setColor(fichaIteracion.GetColor());
+        graphics.fillOval(fichaPos.x, fichaPos.y, 30, 30);
+        if (j1)
+        {
+            graphics.setColor(Color.orange);
+        } else {
+            graphics.setColor(Color.LIGHT_GRAY);
+        }
+        graphics.fillOval(fichaPos.x+9, fichaPos.y+9, 12, 12);
+    }
+
     public void DibujarFichas(Graphics graphics)
     {
+        boolean j1 = true;
         for (ArrayList<FichasTipos> fichaJ : fichitas)
         {
             for (FichasTipos fichaIteracion: fichaJ)
             {
-                graphics.setColor(FichasTipos.GetColor(fichaIteracion));
                 if (!fichaIteracion.IsPressed())
                 {
-                    graphics.fillOval(fichaIteracion.GetPos().x, fichaIteracion.GetPos().y, 30, 30);
+                    DrawFicha(graphics, fichaIteracion, j1,  fichaIteracion.GetPos());
                 }
             }
+            j1 = !j1;
         }
     }
 
     public void DibujarFichaMouse(Graphics graphics){
         if (datos.IsPressed())
         {
-            graphics.setColor(FichasTipos.GetColor(datos));
-            graphics.fillOval(pos.x, pos.y, 30, 30);
+            if (datos.GetID()%2 == 1){
+                DrawFicha(graphics, datos, false, pos);
+            } else {
+                DrawFicha(graphics, datos, true, pos);
+            }
         }
     }
 
