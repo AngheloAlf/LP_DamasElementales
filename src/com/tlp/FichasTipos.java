@@ -13,8 +13,8 @@ public class FichasTipos extends Ficha {
     Element.Type tipo;
     boolean presionada = false;
 
-    public FichasTipos(Point pos, Element.Type tipo) {
-        super(pos);
+    public FichasTipos(Point pos, Element.Type tipo, int id) {
+        super(pos, id);
         this.tipo = tipo;
     }
 
@@ -39,16 +39,19 @@ public class FichasTipos extends Ficha {
         Random rand = new Random();
         Element.Type[] c =  Element.Type.values();
         int randomNumber;
+        int contadorID = 0;
 
         for (int i = 0; i < 20; i++)
         {
             randomNumber = rand.nextInt(3);
-            wea = new FichasTipos(contadorPos1, c[randomNumber]);
+            wea = new FichasTipos(contadorPos1, c[randomNumber], contadorID);
             fichasJ1.add(wea);
+            contadorID += 1;
 
             randomNumber = rand.nextInt(3);
-            wea = new FichasTipos(contadorPos2, c[randomNumber]);
+            wea = new FichasTipos(contadorPos2, c[randomNumber], contadorID);
             fichasJ2.add(wea);
+            contadorID += 1;
 
             contadorPos1 = new Point(contadorPos1.x, contadorPos1.y);
             contadorPos2 = new Point(contadorPos2.x, contadorPos2.y);
@@ -128,5 +131,12 @@ public class FichasTipos extends Ficha {
             return Color.GREEN;
         }
         return Color.YELLOW;
+    }
+
+    public void CopyFicha(FichasTipos fichaIteracion){
+        this.SetType(fichaIteracion.GetType());
+        this.Press(fichaIteracion.IsPressed());
+        this.SetPos(fichaIteracion.GetPos());
+        this.SetID(fichaIteracion.GetID());
     }
 }

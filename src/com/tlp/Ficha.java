@@ -12,10 +12,12 @@ import java.util.Random;
  */
 public class Ficha {
     Point pos;
+    int id;
 
-    public Ficha(Point pos)
+    public Ficha(Point pos, int id)
     {
         this.pos = pos;
+        this.id = id;
     }
 
     public Point GetPos()
@@ -28,7 +30,15 @@ public class Ficha {
         this.pos = pos;
     }
 
+    public int GetID()
+    {
+        return this.id;
+    }
 
+    public void SetID(int id)
+    {
+        this.id = id;
+    }
 
 
 }

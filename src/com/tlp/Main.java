@@ -13,7 +13,7 @@ public class Main implements Context
 {
     private Point pos;
     private ArrayList<ArrayList<FichasTipos>> fichitas = FichasTipos.HacerListaFichas();
-    private FichasTipos datos = new FichasTipos(pos, Element.Type.values()[0]);
+    private FichasTipos datos = new FichasTipos(pos, Element.Type.values()[0], -1);
     public Main()
     {
         // aquí puede inicializar valores y crear los objetos de juego.
@@ -27,15 +27,14 @@ public class Main implements Context
 
         // por ejemplo imprimir algo si el mouse está cerca de la esquina superior izquierda:
         pos = mouseHandler.getMousePosition();
-        if (mouseHandler.isButtonPressed())
+
+        if (mouseHandler.isButtonJustPressed())
         {
             if(!datos.IsPressed()) {
                 FichasTipos aux  = FichasTipos.GetFichasTipos(fichitas, pos.x, pos.y);
                 if (aux != null)
                 {
-                    datos.SetPos(aux.GetPos());
-                    datos.SetType(aux.GetType());
-                    datos.Press(true);
+                    datos.CopyFicha(aux);
                 }
             } else {
                 System.out.println("else");
