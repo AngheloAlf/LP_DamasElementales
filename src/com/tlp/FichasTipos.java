@@ -9,29 +9,35 @@ import java.util.Random;
 /**
  * Created by Anghelo on 01-Dec-15.
  */
-public class FichasTipos extends Ficha {
+public class FichasTipos extends Ficha implements Element {
     Element.Type tipo;
     boolean presionada = false;
+
+    @Override
+    public Type getType()
+    {
+        return this.tipo;
+    }
+    @Override
+    public boolean testAgainst(Element element)
+    {
+
+        return false;
+    }
 
     public FichasTipos(Point pos, Element.Type tipo, int id) {
         super(pos, id);
         this.tipo = tipo;
     }
 
-    public Element.Type GetType()
-    {
-        return this.tipo;
-    }
-
-    public void SetType(Element.Type tipo)
+    public void setType(Element.Type tipo)
     {
         this.tipo = tipo;
     }
 
-    public static ArrayList<ArrayList<FichasTipos>> HacerListaFichas()
+    public static ArrayList<FichasTipos> hacerListaFichas()
     {
-        ArrayList<FichasTipos> fichasJ1 = new ArrayList<FichasTipos>();
-        ArrayList<FichasTipos> fichasJ2 = new ArrayList<FichasTipos>();
+        ArrayList<FichasTipos> fichitas = new ArrayList<FichasTipos>();
         Point contadorPos1 = new Point(75, 15);
         Point contadorPos2 = new Point(75, 375);
 
@@ -45,12 +51,12 @@ public class FichasTipos extends Ficha {
         {
             randomNumber = rand.nextInt(3);
             wea = new FichasTipos(contadorPos1, c[randomNumber], contadorID);
-            fichasJ1.add(wea);
+            fichitas.add(wea);
             contadorID += 1;
 
             randomNumber = rand.nextInt(3);
             wea = new FichasTipos(contadorPos2, c[randomNumber], contadorID);
-            fichasJ2.add(wea);
+            fichitas.add(wea);
             contadorID += 1;
 
             contadorPos1 = new Point(contadorPos1.x, contadorPos1.y);
@@ -74,90 +80,100 @@ public class FichasTipos extends Ficha {
                 }
             }
         }
-
-        ArrayList<ArrayList<FichasTipos>> fichitas = new ArrayList<ArrayList<FichasTipos>>();
-        fichitas.add(fichasJ1);
-        fichitas.add(fichasJ2);
         return fichitas;
     }
 
-    public boolean IsPressed()
+    public boolean isPressed()
     {
         return this.presionada;
     }
 
-    public void Press(boolean presionada)
+    public void press(boolean presionada)
     {
         this.presionada = presionada;
     }
 
-    public static FichasTipos GetFichasTipos(ArrayList<ArrayList<FichasTipos>> fichitas, int posx, int posy)
+    public static FichasTipos getFichasTipos(ArrayList<FichasTipos> fichitas, int posx, int posy)
     {
         Point fichaPos;
-        for (ArrayList<FichasTipos> fichaJ : fichitas)
-        {
-            for (FichasTipos fichaIteracion : fichaJ)
+
+            for (FichasTipos fichaIteracion : fichitas)
             {
-                fichaPos = fichaIteracion.GetPos();
+                fichaPos = fichaIteracion.getPos();
                 if (((fichaPos.x - 15) < posx) && (posx < (fichaPos.x + 45) ))
                 {
                     if (((fichaPos.y - 15) < posy) && (posy < (fichaPos.y + 45) ))
                     {
                         System.out.println("Seleccionaste una ficha");
-                        //fichaIteracion.Press(true);
                         return fichaIteracion;
                     }
                 }
             }
-        }
         System.out.println("NULL");
 
         return null;
     }
 
-    public static Point ArreglarPos(Point newFichaPos)
+    public static Point arreglarPos(Point newFichaPos)
     {
         newFichaPos.x = (newFichaPos.x/60)*60 + 15;
         newFichaPos.y = (newFichaPos.y/60)*60 + 15;
         return newFichaPos;
     }
 
-    public static void PlaceFicha(ArrayList<ArrayList<FichasTipos>> fichitas, int id, Point newFichaPos)
+    public static boolean placeFicha(ArrayList<FichasTipos> fichitas, int id, Point newFichaPos, boolean valido)
     {
-        for (ArrayList<FichasTipos> fichaJ : fichitas)
-        {
-            for (FichasTipos fichaIteracion : fichaJ)
-            {
-                if (fichaIteracion.GetID() == id){
-                    fichaIteracion.SetPos(ArreglarPos(newFichaPos));
-                    fichaIteracion.Press(false);
+
+        for (FichasTipos fichaIteracion : fichitas) {
+            if (fichaIteracion.getID() == id) {
+                if (valido) {
+                    newFichaPos = arreglarPos(newFichaPos);
+                    if ((newFichaPos.x > 0) && (newFichaPos.x < 600) && (newFichaPos.y > 0) && (newFichaPos.y < 600)) {
+                        if (newFichaPos.x + 60 == fichaIteracion.getPos().x) {
+                            fichaIteracion.setPos(newFichaPos);
+                            fichaIteracion.press(false);
+                            return true;
+                        }
+                        if (newFichaPos.x - 60 == fichaIteracion.getPos().x) {
+                            fichaIteracion.setPos(newFichaPos);
+                            fichaIteracion.press(false);
+                            return true;
+                        }
+                    } else {
+
+                    }
                 }
             }
         }
+        return false;
     }
 
-    public Color GetColor()
+    public Color getColor()
     {
         Element.Type[] c =  Element.Type.values();
-        if (this.GetType() == c[0])
+        if (this.getType() == c[0])
         {
             return Color.RED;
         }
-        if (this.GetType() == c[1])
+        if (this.getType() == c[1])
         {
             return Color.BLUE;
         }
-        if (this.GetType() == c[2])
+        if (this.getType() == c[2])
         {
             return Color.GREEN;
         }
         return Color.YELLOW;
     }
 
-    public void CopyFicha(FichasTipos fichaIteracion){
-        this.SetType(fichaIteracion.GetType());
-        this.Press(fichaIteracion.IsPressed());
-        this.SetPos(fichaIteracion.GetPos());
-        this.SetID(fichaIteracion.GetID());
+    public void copyFicha(FichasTipos fichaIteracion){
+        this.setType(fichaIteracion.getType());
+        this.press(fichaIteracion.isPressed());
+        this.setPos(fichaIteracion.getPos());
+        this.setID(fichaIteracion.getID());
     }
+
+
+
+
 }

@@ -12,13 +12,9 @@ import java.util.ArrayList;
 public class Main implements Context
 {
     private Point pos;
-    private ArrayList<ArrayList<FichasTipos>> fichitas = FichasTipos.HacerListaFichas();
+    private ArrayList<FichasTipos> fichitas = FichasTipos.hacerListaFichas();
     private FichasTipos datos = new FichasTipos(pos, Element.Type.values()[0], -1);
     private FichasTipos aux;
-    public Main()
-    {
-        // aquí puede inicializar valores y crear los objetos de juego.
-    }
 
     @Override
     public void update(MouseHandler mouseHandler)
@@ -28,34 +24,35 @@ public class Main implements Context
 
         // por ejemplo imprimir algo si el mouse está cerca de la esquina superior izquierda:
         pos = mouseHandler.getMousePosition();
-
         if (mouseHandler.isButtonJustPressed())
         {
-            aux = FichasTipos.GetFichasTipos(fichitas, pos.x, pos.y);
-            if(!datos.IsPressed()) {
+            aux = FichasTipos.getFichasTipos(fichitas, pos.x, pos.y);
+            if(!datos.isPressed()) {
                 if (aux != null)
                 {
-                    aux.Press(true);
-                    datos.CopyFicha(aux);
+                    aux.press(true);
+                    datos.copyFicha(aux);
                 }
             } else {
                 if (aux == null)
                 {
-                    //System.out.println(aux.GetPos() + " " + datos.GetPos());
-                    if (aux == null){
-                        System.out.println("la wea");
-
-                        FichasTipos.PlaceFicha(fichitas, datos.GetID(), pos);
-                        datos.Press(false);
+                    if (FichasTipos.placeFicha(fichitas, datos.getID(), pos, true)) {
+                        datos.press(false);
+                    }
+                } else {
+                    if (aux.isPressed()){
+                        if (FichasTipos.placeFicha(fichitas, datos.getID(), pos, true))
+                        {
+                            datos.press(false);
+                        }
                     }
                 }
-
-
             }
         }
 
         //if (pos.x < 200 && pos.y < 200) System.out.println(pos);
     }
+
     public void tablero(Graphics p)
     {   boolean black=false;
         int x,y;
@@ -68,14 +65,15 @@ public class Main implements Context
                 else {p.setColor(Color.WHITE);}
                 black=!black;
                 p.fillRect(x*60,y*60,60,60);
-
             }
         }
+        //p.setColor(Color.GRAY);
+        //p.fillRect(600, 0, 200, 600);
     }
 
-    public void DrawFicha(Graphics graphics, FichasTipos fichaIteracion, boolean j1, Point fichaPos)
+    public void drawFicha(Graphics graphics, FichasTipos fichaIteracion, boolean j1, Point fichaPos)
     {
-        graphics.setColor(fichaIteracion.GetColor());
+        graphics.setColor(fichaIteracion.getColor());
         graphics.fillOval(fichaPos.x, fichaPos.y, 30, 30);
         if (j1)
         {
@@ -86,29 +84,24 @@ public class Main implements Context
         graphics.fillOval(fichaPos.x+9, fichaPos.y+9, 12, 12);
     }
 
-    public void DibujarFichas(Graphics graphics)
+    public void dibujarFichas(Graphics graphics)
     {
-        boolean j1 = true;
-        for (ArrayList<FichasTipos> fichaJ : fichitas)
+        for (FichasTipos fichaIteracion: fichitas)
         {
-            for (FichasTipos fichaIteracion: fichaJ)
+            if (!fichaIteracion.isPressed())
             {
-                if (!fichaIteracion.IsPressed())
-                {
-                    DrawFicha(graphics, fichaIteracion, j1,  fichaIteracion.GetPos());
-                }
+                drawFicha(graphics, fichaIteracion, fichaIteracion.getID()%2 == 0, fichaIteracion.getPos());
             }
-            j1 = !j1;
         }
     }
 
-    public void DibujarFichaMouse(Graphics graphics){
-        if (datos.IsPressed())
+    public void dibujarFichaMouse(Graphics graphics){
+        if (datos.isPressed())
         {
-            if (datos.GetID()%2 == 1){
-                DrawFicha(graphics, datos, false, pos);
+            if (datos.getID()%2 == 1){
+                drawFicha(graphics, datos, false, pos);
             } else {
-                DrawFicha(graphics, datos, true, pos);
+                drawFicha(graphics, datos, true, pos);
             }
         }
     }
@@ -118,14 +111,10 @@ public class Main implements Context
     {
         // aquí, y solo aquí, puede dibujar cosas en la pantalla.
         tablero(graphics);
-        // por ejemplo dibujar un círculo verde:
-        //graphics.setColor(Color.GREEN);
-        //graphics.fillOval(pos.x, pos.y, 30, 30);
 
-        DibujarFichas(graphics);
+        dibujarFichas(graphics);
 
-        DibujarFichaMouse(graphics);
-
+        dibujarFichaMouse(graphics);
     }
 
     public static void main(String[] args)

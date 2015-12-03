@@ -20,22 +20,22 @@ public class Ficha {
         this.id = id;
     }
 
-    public Point GetPos()
+    public Point getPos()
     {
         return this.pos;
     }
 
-    public void SetPos(Point pos)
+    public void setPos(Point pos)
     {
         this.pos = pos;
     }
 
-    public int GetID()
+    public int getID()
     {
         return this.id;
     }
 
-    public void SetID(int id)
+    public void setID(int id)
     {
         this.id = id;
     }
