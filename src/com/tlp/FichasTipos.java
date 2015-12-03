@@ -104,15 +104,36 @@ public class FichasTipos extends Ficha {
                     if (((fichaPos.y - 15) < posy) && (posy < (fichaPos.y + 45) ))
                     {
                         System.out.println("Seleccionaste una ficha");
-                        fichaIteracion.Press(true);
+                        //fichaIteracion.Press(true);
                         return fichaIteracion;
                     }
                 }
             }
         }
-        System.out.println("NOPE");
+        System.out.println("NULL");
 
         return null;
+    }
+
+    public static Point ArreglarPos(Point newFichaPos)
+    {
+        newFichaPos.x = (newFichaPos.x/60)*60 + 15;
+        newFichaPos.y = (newFichaPos.y/60)*60 + 15;
+        return newFichaPos;
+    }
+
+    public static void PlaceFicha(ArrayList<ArrayList<FichasTipos>> fichitas, int id, Point newFichaPos)
+    {
+        for (ArrayList<FichasTipos> fichaJ : fichitas)
+        {
+            for (FichasTipos fichaIteracion : fichaJ)
+            {
+                if (fichaIteracion.GetID() == id){
+                    fichaIteracion.SetPos(ArreglarPos(newFichaPos));
+                    fichaIteracion.Press(false);
+                }
+            }
+        }
     }
 
     public Color GetColor()

@@ -40,15 +40,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FichasTipos.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FichasTipos.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/tlp/FichasTipos.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="117" column="26" selection-start-line="117" selection-start-column="26" selection-end-line="117" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.29715762">
+              <caret line="120" column="50" selection-start-line="120" selection-start-column="50" selection-end-line="120" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#HacerListaFichas#0;class#FichasTipos#0" expanded="false" />
-                <element signature="method#GetFichasTipos#0;class#FichasTipos#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -67,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/tlp/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6485788">
-              <caret line="100" column="47" selection-start-line="100" selection-start-column="47" selection-end-line="100" selection-end-column="47" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="38" column="41" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,8 +103,8 @@
         <option value="$PROJECT_DIR$/src/com/tlp/DatosPresionado.java" />
         <option value="$PROJECT_DIR$/src/com/tlp/FichasPowerUps.java" />
         <option value="$PROJECT_DIR$/src/com/tlp/Ficha.java" />
-        <option value="$PROJECT_DIR$/src/com/tlp/FichasTipos.java" />
         <option value="$PROJECT_DIR$/src/com/tlp/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/tlp/FichasTipos.java" />
       </list>
     </option>
   </component>
@@ -547,7 +546,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#HacerListaFichas#0;class#FichasTipos#0" expanded="false" />
-            <element signature="method#GetFichasTipos#0;class#FichasTipos#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -593,7 +591,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#HacerListaFichas#0;class#FichasTipos#0" expanded="false" />
-            <element signature="method#GetFichasTipos#0;class#FichasTipos#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -639,7 +636,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#HacerListaFichas#0;class#FichasTipos#0" expanded="false" />
-            <element signature="method#GetFichasTipos#0;class#FichasTipos#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -745,14 +741,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/tlp/FichasTipos.java">
+    <entry file="file://$PROJECT_DIR$/src/com/tlp/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="117" column="26" selection-start-line="117" selection-start-column="26" selection-end-line="117" selection-end-column="26" />
+          <caret line="38" column="41" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#HacerListaFichas#0;class#FichasTipos#0" expanded="false" />
-            <element signature="method#GetFichasTipos#0;class#FichasTipos#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -768,12 +762,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/tlp/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/com/tlp/FichasTipos.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6485788">
-          <caret line="100" column="47" selection-start-line="100" selection-start-column="47" selection-end-line="100" selection-end-column="47" />
+        <state vertical-scroll-proportion="0.29715762">
+          <caret line="120" column="50" selection-start-line="120" selection-start-column="50" selection-end-line="120" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#HacerListaFichas#0;class#FichasTipos#0" expanded="false" />
           </folding>
         </state>
       </provider>

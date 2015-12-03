@@ -14,6 +14,7 @@ public class Main implements Context
     private Point pos;
     private ArrayList<ArrayList<FichasTipos>> fichitas = FichasTipos.HacerListaFichas();
     private FichasTipos datos = new FichasTipos(pos, Element.Type.values()[0], -1);
+    private FichasTipos aux;
     public Main()
     {
         // aquí puede inicializar valores y crear los objetos de juego.
@@ -30,16 +31,25 @@ public class Main implements Context
 
         if (mouseHandler.isButtonJustPressed())
         {
+            aux = FichasTipos.GetFichasTipos(fichitas, pos.x, pos.y);
             if(!datos.IsPressed()) {
-                FichasTipos aux  = FichasTipos.GetFichasTipos(fichitas, pos.x, pos.y);
                 if (aux != null)
                 {
+                    aux.Press(true);
                     datos.CopyFicha(aux);
                 }
             } else {
-                System.out.println("else");
+                if (aux == null)
+                {
+                    //System.out.println(aux.GetPos() + " " + datos.GetPos());
+                    if (aux == null){
+                        System.out.println("la wea");
 
-                //datos.Press(false);
+                        FichasTipos.PlaceFicha(fichitas, datos.GetID(), pos);
+                        datos.Press(false);
+                    }
+                }
+
 
             }
         }
