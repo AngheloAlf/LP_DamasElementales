@@ -22,27 +22,37 @@ public class Main implements Context
         // aquí actualice sus objetos para que puedan interactuar con input de usuario o entre los mismos
         // objetos.
 
-        // por ejemplo imprimir algo si el mouse está cerca de la esquina superior izquierda:
         pos = mouseHandler.getMousePosition();
         if (mouseHandler.isButtonJustPressed())
         {
             aux = FichasTipos.getFichasTipos(fichitas, pos.x, pos.y);
-            if(!datos.isPressed()) {
+            if (!datos.isPressed())
+            {
+                System.out.println("if (!datos.isPressed())");
                 if (aux != null)
                 {
+                    System.out.println("\tif (aux != null)");
                     aux.press(true);
                     datos.copyFicha(aux);
                 }
             } else {
+                System.out.println("if (datos.isPressed())");
                 if (aux == null)
                 {
-                    if (FichasTipos.placeFicha(fichitas, datos.getID(), pos, true)) {
+                    System.out.println("\tif (aux == null)");
+                    if (FichasTipos.placeFicha(fichitas, datos.getID(), pos, true))
+                    {
+                        System.out.println("\t\tif (FichasTipos.placeFicha(fichitas, datos.getID(), pos, true))");
                         datos.press(false);
                     }
                 } else {
-                    if (aux.isPressed()){
-                        if (FichasTipos.placeFicha(fichitas, datos.getID(), pos, true))
+                    System.out.println("\tif (aux != null)");
+                    if (aux.isPressed())
+                    {
+                        System.out.println("\t\tif (aux.isPressed()");
+                        if (FichasTipos.placeFicha(fichitas, datos.getID(), datos.getPos(), false))
                         {
+                            System.out.println("\t\t\tif (FichasTipos.placeFicha(fichitas, datos.getID(), pos, true))");
                             datos.press(false);
                         }
                     }

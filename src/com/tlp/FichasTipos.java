@@ -18,10 +18,38 @@ public class FichasTipos extends Ficha implements Element {
     {
         return this.tipo;
     }
+    public int getCorrespondingType(Element.Type tipo)
+    {
+        Element.Type[] c =  Element.Type.values();
+        if (tipo == c[0]){
+            return 0;
+        }
+        if (tipo == c[1]){
+            return 1;
+        }
+        if (tipo == c[2]){
+            return 2;
+        }
+        return -1;
+    }
     @Override
     public boolean testAgainst(Element element)
     {
-
+        if ((this != null) && (element != null))
+        {
+            if (getCorrespondingType(this.getType())-1 == getCorrespondingType((element.getType())))
+            {
+                return true;
+            }
+            if (getCorrespondingType(this.getType()) == getCorrespondingType((element.getType())))
+            {
+                return true;
+            }
+            if ((getCorrespondingType(this.getType()) == 0) && (getCorrespondingType(this.getType()) == 0))
+            {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -104,13 +132,10 @@ public class FichasTipos extends Ficha implements Element {
                 {
                     if (((fichaPos.y - 15) < posy) && (posy < (fichaPos.y + 45) ))
                     {
-                        System.out.println("Seleccionaste una ficha");
                         return fichaIteracion;
                     }
                 }
             }
-        System.out.println("NULL");
-
         return null;
     }
 
@@ -123,24 +148,28 @@ public class FichasTipos extends Ficha implements Element {
 
     public static boolean placeFicha(ArrayList<FichasTipos> fichitas, int id, Point newFichaPos, boolean valido)
     {
-
-        for (FichasTipos fichaIteracion : fichitas) {
-            if (fichaIteracion.getID() == id) {
-                if (valido) {
+        if ((newFichaPos.x > 0) && (newFichaPos.x < 600) && ((newFichaPos.y > 0) && (newFichaPos.y < 600)))
+        {
+            for (FichasTipos fichaIteracion : fichitas)
+            {
+                if (fichaIteracion.getID() == id)
+                {
                     newFichaPos = arreglarPos(newFichaPos);
-                    if ((newFichaPos.x > 0) && (newFichaPos.x < 600) && (newFichaPos.y > 0) && (newFichaPos.y < 600)) {
-                        if (newFichaPos.x + 60 == fichaIteracion.getPos().x) {
-                            fichaIteracion.setPos(newFichaPos);
-                            fichaIteracion.press(false);
-                            return true;
-                        }
-                        if (newFichaPos.x - 60 == fichaIteracion.getPos().x) {
-                            fichaIteracion.setPos(newFichaPos);
-                            fichaIteracion.press(false);
-                            return true;
+                    if (valido)
+                    {
+                        if ((newFichaPos.x + 60 == fichaIteracion.getPos().x) || (newFichaPos.x - 60 == fichaIteracion.getPos().x))
+                        {
+                            if (((id%2 == 0) && (newFichaPos.y - 60 == fichaIteracion.getPos().y)) || ((id%2 == 1) && (newFichaPos.y + 60 == fichaIteracion.getPos().y)))
+                            {
+                                fichaIteracion.setPos(newFichaPos);
+                                fichaIteracion.press(false);
+                                return true;
+                            }
                         }
                     } else {
-
+                        fichaIteracion.setPos(newFichaPos);
+                        fichaIteracion.press(false);
+                        return true;
                     }
                 }
             }
