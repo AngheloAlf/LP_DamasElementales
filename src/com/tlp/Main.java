@@ -73,19 +73,28 @@ public class Main implements Context
     }
 
     public void tablero(Graphics p)
-    {   boolean black=false;
+    {
+        boolean black=false;
         int x,y;
         for (x=0;x<10;x++)
         {
             black=!black;
             for(y=0;y<10;y++)
             {
-                if (black){p.setColor(Color.BLACK);}
-                else {p.setColor(Color.WHITE);}
+                if (black)
+                {
+                    p.setColor(Color.BLACK);
+                } else {
+                    p.setColor(Color.WHITE);
+                }
                 black=!black;
                 p.fillRect(x*60,y*60,60,60);
             }
         }
+    }
+
+    public void dibujarPuntuacion(Graphics p)
+    {
         p.setColor(Color.GRAY);
         p.fillRect(600, 0, 200, 600);
 
@@ -100,6 +109,26 @@ public class Main implements Context
         } else {
             p.drawString("Jugador 2", 640, 310);
         }
+
+        int puntos1 = 0;
+        int puntos2 = 0;
+        for (FichasTipos fichaIteracion: fichitas)
+        {
+            if(fichaIteracion.isComida())
+            {
+                if(fichaIteracion.getID()%2 == 1)
+                {
+                    puntos1 += 1;
+                } else {
+                    puntos2 += 1;
+                }
+            }
+        }
+
+        p.drawString("Fichas comidas: ", 630, 50);
+        p.drawString(String.valueOf(puntos1), 730, 50);
+        p.drawString("Fichas comidas: ", 630, 550);
+        p.drawString(String.valueOf(puntos2), 730, 550);
     }
 
     public void drawFicha(Graphics graphics, FichasTipos fichaIteracion, boolean j1, Point fichaPos)
@@ -119,7 +148,7 @@ public class Main implements Context
     {
         for (FichasTipos fichaIteracion: fichitas)
         {
-            if (!fichaIteracion.isPressed())
+            if (!fichaIteracion.isPressed() && !fichaIteracion.isComida())
             {
                 drawFicha(graphics, fichaIteracion, fichaIteracion.getID()%2 == 0, fichaIteracion.getPos());
             }
@@ -146,6 +175,8 @@ public class Main implements Context
         dibujarFichas(graphics);
 
         dibujarFichaMouse(graphics);
+
+        dibujarPuntuacion(graphics);
     }
 
     public static void main(String[] args)
