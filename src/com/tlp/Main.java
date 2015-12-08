@@ -8,13 +8,13 @@ import lp.motor.MouseHandler;
 import java.awt.*;
 import java.util.ArrayList;
 
-
 public class Main implements Context
 {
     private Point pos;
     private ArrayList<FichasTipos> fichitas = FichasTipos.hacerListaFichas();
     private FichasTipos datos = new FichasTipos(pos, Element.Type.values()[0], -1);
     private FichasTipos aux;
+    private boolean turnoJ1 = true;
 
     @Override
     public void update(MouseHandler mouseHandler)
@@ -32,8 +32,18 @@ public class Main implements Context
                 if (aux != null)
                 {
                     System.out.println("\tif (aux != null)");
-                    aux.press(true);
-                    datos.copyFicha(aux);
+                    if ((turnoJ1) && (aux.getID()%2 == 0))
+                    {
+                        System.out.println("\t\tif ((turnoJ1) && (aux.getID()%2 == 0))");
+                        aux.press(true);
+                        datos.copyFicha(aux);
+                    }
+                    if (!(turnoJ1) && (aux.getID()%2 == 1))
+                    {
+                        System.out.println("\t\tif (!(turnoJ1) && (aux.getID()%2 == 1))");
+                        aux.press(true);
+                        datos.copyFicha(aux);
+                    }
                 }
             } else {
                 System.out.println("if (datos.isPressed())");
@@ -44,23 +54,22 @@ public class Main implements Context
                     {
                         System.out.println("\t\tif (FichasTipos.placeFicha(fichitas, datos.getID(), pos, true))");
                         datos.press(false);
+                        turnoJ1 = !turnoJ1;
                     }
                 } else {
                     System.out.println("\tif (aux != null)");
                     if (aux.isPressed())
                     {
-                        System.out.println("\t\tif (aux.isPressed()");
+                        System.out.println("\t\tif (aux.isPressed())");
                         if (FichasTipos.placeFicha(fichitas, datos.getID(), datos.getPos(), false))
                         {
-                            System.out.println("\t\t\tif (FichasTipos.placeFicha(fichitas, datos.getID(), pos, true))");
+                            System.out.println("\t\t\tif (FichasTipos.placeFicha(fichitas, datos.getID(), pos, false))");
                             datos.press(false);
                         }
                     }
                 }
             }
         }
-
-        //if (pos.x < 200 && pos.y < 200) System.out.println(pos);
     }
 
     public void tablero(Graphics p)
@@ -77,8 +86,20 @@ public class Main implements Context
                 p.fillRect(x*60,y*60,60,60);
             }
         }
-        //p.setColor(Color.GRAY);
-        //p.fillRect(600, 0, 200, 600);
+        p.setColor(Color.GRAY);
+        p.fillRect(600, 0, 200, 600);
+
+        p.setColor(Color.BLACK);
+        p.drawString("Jugador 1", 620, 25);
+        p.drawString("Jugador 2", 620, 575);
+
+        p.drawString("Turno de:", 620, 290);
+        if (turnoJ1)
+        {
+            p.drawString("Jugador 1", 640, 310);
+        } else {
+            p.drawString("Jugador 2", 640, 310);
+        }
     }
 
     public void drawFicha(Graphics graphics, FichasTipos fichaIteracion, boolean j1, Point fichaPos)
@@ -130,6 +151,6 @@ public class Main implements Context
     public static void main(String[] args)
     {
         // el método main solo se encargará de iniciar el sistema.
-        Application.start(600, 600, "Pokemon", 60, new Main());
+        Application.start(800, 600, "Pokemon", 60, new Main());
     }
 }
