@@ -29,42 +29,32 @@ public class Main implements Context
             aux = Tablero.getFichasTipos(fichitas, pos.x, pos.y);
             if (!datos.isPressed())
             {
-                System.out.println("if (!datos.isPressed())");
                 if (aux != null)
                 {
-                    System.out.println("\tif (aux != null)");
                     if ((turnoJ1) && (aux.getID()%2 == 0))
                     {
-                        System.out.println("\t\tif ((turnoJ1) && (aux.getID()%2 == 0))");
                         aux.press(true);
                         datos.copyFicha(aux);
                     }
                     if (!(turnoJ1) && (aux.getID()%2 == 1))
                     {
-                        System.out.println("\t\tif (!(turnoJ1) && (aux.getID()%2 == 1))");
                         aux.press(true);
                         datos.copyFicha(aux);
                     }
                 }
             } else {
-                System.out.println("if (datos.isPressed())");
                 if (aux == null)
                 {
-                    System.out.println("\tif (aux == null)");
                     if (Tablero.placeFicha(fichitas, datos.getID(), pos, true))
                     {
-                        System.out.println("\t\tif (FichasTipos.placeFicha(fichitas, datos.getID(), pos, true))");
                         datos.press(false);
                         turnoJ1 = !turnoJ1;
                     }
                 } else {
-                    System.out.println("\tif (aux != null)");
                     if (aux.isPressed())
                     {
-                        System.out.println("\t\tif (aux.isPressed())");
                         if (Tablero.placeFicha(fichitas, datos.getID(), datos.getPos(), false))
                         {
-                            System.out.println("\t\t\tif (FichasTipos.placeFicha(fichitas, datos.getID(), pos, false))");
                             datos.press(false);
                         }
                     }

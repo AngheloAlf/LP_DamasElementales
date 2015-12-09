@@ -13,6 +13,7 @@ public class FichasTipos extends Ficha implements Element {
     Element.Type tipo;
     boolean presionada = false;
     boolean comida = false;
+    boolean reina = false;
 
     public FichasTipos(Point pos, Element.Type tipo, int id) {
         super(pos, id);
@@ -25,7 +26,7 @@ public class FichasTipos extends Ficha implements Element {
         return this.tipo;
     }
 
-    public int getCorrespondingType(Element.Type tipo)
+    public static int getCorrespondingType(Element.Type tipo)
     {
         Element.Type[] c =  Element.Type.values();
         if (tipo == c[0]){
@@ -88,6 +89,16 @@ public class FichasTipos extends Ficha implements Element {
         this.comida = true;
     }
 
+    public void hacerReina()
+    {
+        this.reina = true;
+    }
+
+    public boolean isReina()
+    {
+        return this.reina;
+    }
+
     public Color getColor()
     {
         Element.Type[] c =  Element.Type.values();
@@ -111,6 +122,12 @@ public class FichasTipos extends Ficha implements Element {
         this.press(fichaIteracion.isPressed());
         this.setPos(fichaIteracion.getPos());
         this.setID(fichaIteracion.getID());
+        if (fichaIteracion.isReina())
+        {
+            this.hacerReina();
+        } else {
+            this.reina = false;
+        }
     }
 
     public static ArrayList<FichasTipos> hacerListaFichas()

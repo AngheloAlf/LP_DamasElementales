@@ -69,8 +69,16 @@ public class Tablero {
 
     public static void drawFicha(Graphics graphics, FichasTipos fichaIteracion, boolean j1, Point fichaPos)
     {
-        graphics.setColor(fichaIteracion.getColor());
-        graphics.fillOval(fichaPos.x, fichaPos.y, 30, 30);
+        if (fichaIteracion.isReina())
+        {
+            graphics.setColor(Color.BLACK);
+            graphics.fillOval(fichaPos.x, fichaPos.y, 30, 30);
+            graphics.setColor(fichaIteracion.getColor());
+            graphics.fillOval(fichaPos.x+3, fichaPos.y+3, 24, 24);
+        } else {
+            graphics.setColor(fichaIteracion.getColor());
+            graphics.fillOval(fichaPos.x, fichaPos.y, 30, 30);
+        }
         if (j1)
         {
             graphics.setColor(Color.orange);
@@ -127,6 +135,18 @@ public class Tablero {
         return newFichaPos;
     }
 
+    public static void verificarCreacionReina(FichasTipos fichaIteracion, Point newFichaPos, int id)
+    {
+        if ((id%2 == 0) && (newFichaPos.y == 555))
+        {
+            fichaIteracion.hacerReina();
+        }
+        if ((id%2 == 1) && (newFichaPos.y == 15))
+        {
+            fichaIteracion.hacerReina();
+        }
+    }
+
     public static boolean verificarComimiento(ArrayList<FichasTipos> fichitas, FichasTipos fichaIteracion, Point newFichaPos, int id, int jugador, int awayX)
     {
         int away = 120;
@@ -136,21 +156,26 @@ public class Tablero {
             away = -120;
             otroJugador = 1;
         }
-        if ((id%2 == jugador) && (newFichaPos.y + away == fichaIteracion.getPos().y))
+
+        if (newFichaPos.x + awayX == fichaIteracion.getPos().x)
         {
-            if (newFichaPos.x + awayX == fichaIteracion.getPos().x)
+            System.out.println("if (newFichaPos.x + awayX == fichaIteracion.getPos().x)");
+            for (FichasTipos fichaCiclo : fichitas)
             {
-                for (FichasTipos fichaCiclo: fichitas)
+                if ((fichaCiclo.getPos().x + awayX / 2 == fichaIteracion.getPos().x) && (fichaCiclo.getPos().y + away / 2 == fichaIteracion.getPos().y))
                 {
-                    if ((fichaCiclo.getPos().x + awayX/2 == fichaIteracion.getPos().x) && (fichaCiclo.getPos().y + away/2 == fichaIteracion.getPos().y))
+                    System.out.println("\tif ((fichaCiclo.getPos().x + awayX / 2 == fichaIteracion.getPos().x) && (fichaCiclo.getPos().y + away / 2 == fichaIteracion.getPos().y))\n");
+                    if (fichaCiclo.getID() % 2 == otroJugador)
                     {
-                        if (fichaCiclo.getID()%2 == otroJugador)
-                        {
+                        System.out.println("\t\tif (fichaCiclo.getID() % 2 == otroJugador)");
+                        if ((id % 2 == jugador) && (newFichaPos.y + away == fichaIteracion.getPos().y)) {
+                            System.out.println("\t\tif ((id%2 == jugador) && (newFichaPos.y + away == fichaIteracion.getPos().y))");
                             Point nullPos = new Point(-1, -1);
                             if (fichaIteracion.testAgainst(fichaCiclo)) {
                                 fichaCiclo.setPos(nullPos);
                                 fichaCiclo.comer();
                                 fichaIteracion.setPos(newFichaPos);
+                                verificarCreacionReina(fichaIteracion, newFichaPos, id);
                             } else {
                                 fichaIteracion.setPos(nullPos);
                                 fichaIteracion.comer();
@@ -158,6 +183,22 @@ public class Tablero {
                             fichaIteracion.press(false);
                             return true;
                         }
+                    }
+                    if ((fichaIteracion.isReina()) && (newFichaPos.y - away == fichaIteracion.getPos().y))
+                    {
+                        System.out.println("\t\tif ((fichaIteracion.isReina()) && (newFichaPos.y - away == fichaIteracion.getPos().y))");
+                        Point nullPos = new Point(-1, -1);
+                        if (fichaIteracion.testAgainst(fichaCiclo)) {
+                            fichaCiclo.setPos(nullPos);
+                            fichaCiclo.comer();
+                            fichaIteracion.setPos(newFichaPos);
+                            verificarCreacionReina(fichaIteracion, newFichaPos, id);
+                        } else {
+                            fichaIteracion.setPos(nullPos);
+                            fichaIteracion.comer();
+                        }
+                        fichaIteracion.press(false);
+                        return true;
                     }
                 }
             }
@@ -176,13 +217,26 @@ public class Tablero {
                     newFichaPos = arreglarPos(newFichaPos);
                     if (valido)
                     {
-                        if (((id%2 == 0) && (newFichaPos.y - 60 == fichaIteracion.getPos().y)) || ((id%2 == 1) && (newFichaPos.y + 60 == fichaIteracion.getPos().y)))
+                        if ((newFichaPos.x + 60 == fichaIteracion.getPos().x) || (newFichaPos.x - 60 == fichaIteracion.getPos().x))
                         {
-                            if ((newFichaPos.x + 60 == fichaIteracion.getPos().x) || (newFichaPos.x - 60 == fichaIteracion.getPos().x))
+                            if (fichaIteracion.isReina())
                             {
-                                fichaIteracion.setPos(newFichaPos);
-                                fichaIteracion.press(false);
-                                return true;
+                                if ((newFichaPos.y - 60 == fichaIteracion.getPos().y) || (newFichaPos.y + 60 == fichaIteracion.getPos().y))
+                                {
+                                    fichaIteracion.setPos(newFichaPos);
+                                    fichaIteracion.press(false);
+                                    verificarCreacionReina(fichaIteracion, newFichaPos, id);
+                                    return true;
+                                }
+                            }
+                            else{
+                                if (((id%2 == 0) && (newFichaPos.y - 60 == fichaIteracion.getPos().y)) || ((id%2 == 1) && (newFichaPos.y + 60 == fichaIteracion.getPos().y)))
+                                {
+                                    fichaIteracion.setPos(newFichaPos);
+                                    fichaIteracion.press(false);
+                                    verificarCreacionReina(fichaIteracion, newFichaPos, id);
+                                    return true;
+                                }
                             }
                         }
 
