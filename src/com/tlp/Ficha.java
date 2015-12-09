@@ -11,8 +11,8 @@ import java.util.Random;
  * Created by nontraxx on 27-11-15.
  */
 public class Ficha {
-    Point pos;
-    int id;
+    protected Point pos;
+    protected int id;
 
     public Ficha(Point pos, int id)
     {

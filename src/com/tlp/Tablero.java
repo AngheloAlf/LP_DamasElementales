@@ -28,7 +28,7 @@ public class Tablero {
         }
     }
 
-    public static void dibujarPuntuacion(Graphics p, boolean turnoJ1, ArrayList<FichasTipos> fichitas)
+    public static void dibujarPuntuacion(Graphics p, boolean turnoJ1, ArrayList<FichasTipos> fichitas, int cantidadTurnos)
     {
         p.setColor(Color.GRAY);
         p.fillRect(600, 0, 200, 600);
@@ -37,13 +37,15 @@ public class Tablero {
         p.drawString("Jugador 1", 620, 25);
         p.drawString("Jugador 2", 620, 575);
 
-        p.drawString("Turno de:", 620, 290);
+        p.drawString("Turno de:", 620, 200);
         if (turnoJ1)
         {
-            p.drawString("Jugador 1", 640, 310);
+            p.drawString("Jugador 1", 640, 220);
         } else {
-            p.drawString("Jugador 2", 640, 310);
+            p.drawString("Jugador 2", 640, 220);
         }
+
+        p.drawString("Turno    "+cantidadTurnos, 620, 390);
 
         int puntos1 = 0;
         int puntos2 = 0;
@@ -111,6 +113,18 @@ public class Tablero {
                 drawFicha(graphics, datos, false, pos);
             } else {
                 drawFicha(graphics, datos, true, pos);
+            }
+        }
+    }
+
+    public static void dibujarPowerUps(Graphics graphics, ArrayList<FichasPowerUps> fichitasUps)
+    {
+        for (FichasPowerUps fichaIteracion: fichitasUps)
+        {
+            if (fichaIteracion.isActiva())
+            {
+                graphics.setColor(fichaIteracion.getColor());
+                graphics.fillOval(fichaIteracion.getPos().x, fichaIteracion.getPos().y, 30, 30);
             }
         }
     }

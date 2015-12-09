@@ -1,6 +1,7 @@
 import com.tlp.FichasTipos;
 import com.tlp.FichasPowerUps;
 import com.tlp.Tablero;
+
 import lp.motor.Application;
 import lp.motor.Context;
 import lp.motor.Element;
@@ -16,6 +17,8 @@ public class Main implements Context
     private FichasTipos datos = new FichasTipos(pos, Element.Type.values()[0], -1);
     private FichasTipos aux;
     private boolean turnoJ1 = true;
+    private int cantidadTurnos = 1;
+    private ArrayList<FichasPowerUps> fichitasUps = new ArrayList<FichasPowerUps>();
 
     @Override
     public void update(MouseHandler mouseHandler)
@@ -49,6 +52,8 @@ public class Main implements Context
                     {
                         datos.press(false);
                         turnoJ1 = !turnoJ1;
+                        cantidadTurnos += 1;
+                        FichasPowerUps.agregarFichaRandom(fichitas, fichitasUps, cantidadTurnos);
                     }
                 } else {
                     if (aux.isPressed())
@@ -73,7 +78,9 @@ public class Main implements Context
 
         Tablero.dibujarFichaMouse(graphics, datos, pos);
 
-        Tablero.dibujarPuntuacion(graphics, turnoJ1, fichitas);
+        Tablero.dibujarPowerUps(graphics, fichitasUps);
+
+        Tablero.dibujarPuntuacion(graphics, turnoJ1, fichitas, cantidadTurnos);
     }
 
     public static void main(String[] args)

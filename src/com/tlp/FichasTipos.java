@@ -10,10 +10,10 @@ import java.util.Random;
  * Created by Anghelo on 01-Dec-15.
  */
 public class FichasTipos extends Ficha implements Element {
-    Element.Type tipo;
-    boolean presionada = false;
-    boolean comida = false;
-    boolean reina = false;
+    protected Element.Type tipo;
+    protected boolean presionada = false;
+    protected boolean comida = false;
+    protected boolean reina = false;
 
     public FichasTipos(Point pos, Element.Type tipo, int id) {
         super(pos, id);

@@ -3,14 +3,54 @@ package com.tlp;
 import lp.motor.Element;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by Anghelo on 01-Dec-15.
  */
 
 public class FichasPowerUps extends Ficha {
-    public FichasPowerUps(Point pos, int id) {
+    protected boolean activa = true;
+    protected int tipoUp;
+
+    public FichasPowerUps(Point pos, int id, int tipoUp) {
         super(pos, id);
+        this.tipoUp = tipoUp;
+    }
+
+    public boolean isActiva()
+    {
+        return this.activa;
+    }
+
+    public void deActivate()
+    {
+        this.activa = false;
+    }
+
+    public Color getColor()
+    {
+        if (this.tipoUp == 0)
+        {
+            return Color.BLACK;
+        }
+        if (this.tipoUp == 1)
+        {
+            return Color.YELLOW;
+        }
+        if (this.tipoUp == 2)
+        {
+            return Color.PINK;
+        }
+        if (this.tipoUp == 3)
+        {
+            return Color.lightGray;
+        }
+        if (this.tipoUp == 4)
+        {
+            return Color.CYAN;
+        }
+        return Color.WHITE;
     }
 
     public void changeTypeFicha(FichasTipos fichaIteracion)
@@ -46,5 +86,44 @@ public class FichasPowerUps extends Ficha {
                 aux.setID(ultimoID + 2);
             }
         }
+    }
+
+    public static void agregarFichaRandom(ArrayList<FichasTipos> fichitas, ArrayList<FichasPowerUps> fichitasUps, int cantidadTurnos)
+    {
+        if (cantidadTurnos % 3 != 0)
+        {
+            return;
+        }
+        Random rand = new Random();
+        int randomX = rand.nextInt(10);
+        int randomY = rand.nextInt(10);
+        System.out.println(randomX+" "+randomY);
+
+        randomX = randomX * 60 + 15;
+        if (randomY % 2 == 0)
+        {
+            randomX += 60;
+        }
+        randomY = randomY * 60 + 15;
+
+        for (FichasTipos fichaIteracion: fichitas)
+        {
+            if ((fichaIteracion.getPos().x == randomX) && (fichaIteracion.getPos().y == randomY))
+            {
+                return;
+            }
+        }
+        int ultimoid = 0;
+        for (FichasPowerUps fichitasIteracionUps: fichitasUps)
+        {
+            if (fichitasIteracionUps.getID() > ultimoid)
+            {
+                ultimoid = fichitasIteracionUps.getID();
+            }
+        }
+        Point posUps = new Point(randomX, randomY);
+        System.out.println(posUps);
+        FichasPowerUps nuevaFicha = new FichasPowerUps(posUps, ultimoid+1, rand.nextInt(5));
+        fichitasUps.add(nuevaFicha);
     }
 }
