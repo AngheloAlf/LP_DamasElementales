@@ -26,7 +26,7 @@ public class Main implements Context
         pos = mouseHandler.getMousePosition();
         if (mouseHandler.isButtonJustPressed())
         {
-            aux = FichasTipos.getFichasTipos(fichitas, pos.x, pos.y);
+            aux = Tablero.getFichasTipos(fichitas, pos.x, pos.y);
             if (!datos.isPressed())
             {
                 System.out.println("if (!datos.isPressed())");
@@ -51,7 +51,7 @@ public class Main implements Context
                 if (aux == null)
                 {
                     System.out.println("\tif (aux == null)");
-                    if (FichasTipos.placeFicha(fichitas, datos.getID(), pos, true))
+                    if (Tablero.placeFicha(fichitas, datos.getID(), pos, true))
                     {
                         System.out.println("\t\tif (FichasTipos.placeFicha(fichitas, datos.getID(), pos, true))");
                         datos.press(false);
@@ -62,7 +62,7 @@ public class Main implements Context
                     if (aux.isPressed())
                     {
                         System.out.println("\t\tif (aux.isPressed())");
-                        if (FichasTipos.placeFicha(fichitas, datos.getID(), datos.getPos(), false))
+                        if (Tablero.placeFicha(fichitas, datos.getID(), datos.getPos(), false))
                         {
                             System.out.println("\t\t\tif (FichasTipos.placeFicha(fichitas, datos.getID(), pos, false))");
                             datos.press(false);
