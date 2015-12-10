@@ -21,7 +21,7 @@ public class Main implements Context
     private int cantidadTurnos = 1;
     private ArrayList<FichasPowerUps> fichitasUps = new ArrayList<FichasPowerUps>();
     private FichasPowerUps powerUpUsado;
-    private boolean proceso;
+    private boolean proceso = false;
 
     @Override
     public void update(MouseHandler mouseHandler)
@@ -32,47 +32,35 @@ public class Main implements Context
         pos = mouseHandler.getMousePosition();
         if (mouseHandler.isButtonJustPressed())
         {
-            aux = Tablero.getFichasTipos(fichitas, pos.x, pos.y);
-            if (!datos.isPressed())
+            if (!proceso)
             {
-                if (aux != null)
-                {
-                    if ((turnoJ1) && (aux.getID()%2 == 0))
-                    {
-                        aux.press(true);
-                        datos.copyFicha(aux);
-                    }
-                    if (!(turnoJ1) && (aux.getID()%2 == 1))
-                    {
-                        aux.press(true);
-                        datos.copyFicha(aux);
+                aux = Tablero.getFichasTipos(fichitas, pos.x, pos.y);
+                if (!datos.isPressed()) {
+                    Tablero.tomarFicha(datos, aux, turnoJ1);
+                } else {
+                    if (aux == null) {
+                        if (Tablero.placeFicha(fichitas, datos.getID(), pos, true)) {
+                            FichasPowerUps.agregarFichaRandom(fichitas, fichitasUps);
+                            datos.press(false);
+
+                            powerUpUsado = Tablero.detectarColisionFichas(fichitas, fichitasUps);
+                            if (powerUpUsado != null) {
+                                proceso = true;
+                            }
+                            powerUpUsado.setDueno(datos.getID()%2);
+                            turnoJ1 = !turnoJ1;
+                            cantidadTurnos += 1;
+                        }
+                    } else {
+                        if (aux.isPressed()) {
+                            if (Tablero.placeFicha(fichitas, datos.getID(), datos.getPos(), false)) {
+                                datos.press(false);
+                            }
+                        }
                     }
                 }
             } else {
-                if (aux == null)
-                {
-                    if (Tablero.placeFicha(fichitas, datos.getID(), pos, true))
-                    {
-                        FichasPowerUps.agregarFichaRandom(fichitas, fichitasUps);
-                        datos.press(false);
-
-                        powerUpUsado = Tablero.detectarColisionFichas(fichitas, fichitasUps);
-                        if (powerUpUsado != null)
-                        {
-                            proceso = true;
-                        }
-                        turnoJ1 = !turnoJ1;
-                        cantidadTurnos += 1;
-                    }
-                } else {
-                    if (aux.isPressed())
-                    {
-                        if (Tablero.placeFicha(fichitas, datos.getID(), datos.getPos(), false))
-                        {
-                            datos.press(false);
-                        }
-                    }
-                }
+                proceso = powerUpUsado.usarPowerUps(proceso, fichitas, datos.getID(), pos);
             }
         }
     }
@@ -89,7 +77,7 @@ public class Main implements Context
 
         Tablero.dibujarFichaMouse(graphics, datos, pos);
 
-        Tablero.dibujarPuntuacion(graphics, turnoJ1, fichitas, cantidadTurnos);
+        Tablero.dibujarPuntuacion(graphics, turnoJ1, fichitas, cantidadTurnos, powerUpUsado);
     }
 
     public static void main(String[] args)

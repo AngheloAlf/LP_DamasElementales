@@ -28,7 +28,7 @@ public class Tablero {
         }
     }
 
-    public static void dibujarPuntuacion(Graphics p, boolean turnoJ1, ArrayList<FichasTipos> fichitas, int cantidadTurnos)
+    public static void dibujarPuntuacion(Graphics p, boolean turnoJ1, ArrayList<FichasTipos> fichitas, int cantidadTurnos, FichasPowerUps powerUpUsado)
     {
         p.setColor(Color.GRAY);
         p.fillRect(600, 0, 200, 600);
@@ -66,8 +66,13 @@ public class Tablero {
         p.drawString(String.valueOf(puntos1), 730, 50);
         p.drawString("Fichas comidas: ", 630, 550);
         p.drawString(String.valueOf(puntos2), 730, 550);
-    }
 
+        if ((powerUpUsado != null) && (powerUpUsado.getType() == 4))
+        {
+            p.drawString("Jugador "+(powerUpUsado.getDueno()+1), 630, 280);
+            p.drawString("Seleccione una ficha enemiga", 620, 300);
+        }
+    }
 
     public static void drawFicha(Graphics graphics, FichasTipos fichaIteracion, boolean j1, Point fichaPos)
     {
@@ -128,6 +133,22 @@ public class Tablero {
             }
         }
     }
+
+    public static void tomarFicha(FichasTipos datos, FichasTipos aux, boolean turnoJ1)
+    {
+        if (aux != null)
+        {
+            if ((turnoJ1) && (aux.getID()%2 == 0))
+            {
+                aux.press(true);
+                datos.copyFicha(aux);
+            }
+            if (!(turnoJ1) && (aux.getID()%2 == 1))
+            {
+                aux.press(true);
+                datos.copyFicha(aux);
+            }
+        }    }
 
     public static FichasTipos getFichasTipos(ArrayList<FichasTipos> fichitas, int posx, int posy)
     {

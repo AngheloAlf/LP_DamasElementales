@@ -1,6 +1,8 @@
 package com.tlp;
 
 import lp.motor.Element;
+import lp.motor.MouseHandler;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
@@ -12,6 +14,7 @@ import java.util.Random;
 public class FichasPowerUps extends Ficha {
     protected boolean activa = true;
     protected int tipoUp;
+    protected int dueno = -1;
 
     public FichasPowerUps(Point pos, int id, int tipoUp) {
         super(pos, id);
@@ -36,6 +39,16 @@ public class FichasPowerUps extends Ficha {
     public void setType(int tipo)
     {
         this.tipoUp = tipo;
+    }
+
+    public void setDueno(int dueno)
+    {
+        this.dueno = dueno;
+    }
+
+    public int getDueno()
+    {
+        return this.dueno;
     }
 
     public Color getColor()
@@ -66,7 +79,7 @@ public class FichasPowerUps extends Ficha {
     public void changeTypeFicha(FichasTipos fichaIteracion)
     {
         int tipo = FichasTipos.getCorrespondingType(fichaIteracion.getType());
-        tipo = -1;
+        tipo -= 1;
         if (tipo < 0)
         {
             tipo = 2;
@@ -75,21 +88,21 @@ public class FichasPowerUps extends Ficha {
         fichaIteracion.setType(c[tipo]);
     }
 
-    public static void transformar(ArrayList<FichasTipos> fichitas, int id)
+    public static void transformar(ArrayList<FichasTipos> fichitas, Point pos, int id)
     {
         FichasTipos aux = null;
         int ultimoID = -1;
         for (FichasTipos fichaIteracion: fichitas)
         {
             ultimoID = fichaIteracion.getID();
-            if(ultimoID == id)
+            if ((fichaIteracion.getPos().x == pos.x) && (fichaIteracion.getPos().y == pos.y))
             {
                 aux = fichaIteracion;
             }
         }
-        if (aux != null)
+        if ((aux != null) && (aux.getID()%2 != id%2))
         {
-            if(id%2 == ultimoID%2)
+            if (aux.getID()%2 == ultimoID%2)
             {
                 aux.setID(ultimoID + 1);
             } else {
@@ -143,7 +156,7 @@ public class FichasPowerUps extends Ficha {
         fichitasUps.add(nuevaFicha);
     }
 
-    public void usarPowerUps() {
+    public boolean usarPowerUps(boolean proceso, ArrayList<FichasTipos> fichitas, int idF, Point pos) {
         int tipo = this.getType();
         if (tipo == 0)
         {
@@ -159,15 +172,24 @@ public class FichasPowerUps extends Ficha {
         }
         if (tipo == 3)
         {
-
+            for (FichasTipos fichaIteracion: fichitas)
+            {
+                if (fichaIteracion.getID() == idF)
+                {
+                    changeTypeFicha(fichaIteracion);
+                    this.deActivate();
+                    return false;
+                }
+            }
         }
         if (tipo == 4)
         {
-
+            pos.x = (pos.x / 60) * 60 + 15;
+            pos.y = (pos.y / 60) * 60 + 15;
+            transformar(fichitas, pos, this.getDueno());
         }
 
 
-        // ultima linea
-        this.deActivate();
+        return proceso;
     }
 }
