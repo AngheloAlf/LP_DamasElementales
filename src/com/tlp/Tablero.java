@@ -273,4 +273,19 @@ public class Tablero {
         }
         return false;
     }
+
+    public static FichasPowerUps detectarColisionFichas(ArrayList<FichasTipos> fichitas, ArrayList<FichasPowerUps> fichitasUps)
+    {
+        for (FichasTipos fichaIteracion: fichitas)
+        {
+            for (FichasPowerUps fichaCicloUps: fichitasUps)
+            {
+                if ((fichaIteracion.getPos().x == fichaCicloUps.getPos().x) && (fichaIteracion.getPos().y == fichaCicloUps.getPos().y))
+                {
+                    return fichaCicloUps;
+                }
+            }
+        }
+        return null;
+    }
 }

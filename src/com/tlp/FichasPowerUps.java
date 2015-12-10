@@ -28,6 +28,16 @@ public class FichasPowerUps extends Ficha {
         this.activa = false;
     }
 
+    public int getType()
+    {
+        return this.tipoUp;
+    }
+
+    public void setType(int tipo)
+    {
+        this.tipoUp = tipo;
+    }
+
     public Color getColor()
     {
         if (this.tipoUp == 0)
@@ -88,27 +98,33 @@ public class FichasPowerUps extends Ficha {
         }
     }
 
-    public static void agregarFichaRandom(ArrayList<FichasTipos> fichitas, ArrayList<FichasPowerUps> fichitasUps, int cantidadTurnos)
+    public static void agregarFichaRandom(ArrayList<FichasTipos> fichitas, ArrayList<FichasPowerUps> fichitasUps)
     {
-        if (cantidadTurnos % 3 != 0)
-        {
-            return;
-        }
+
         Random rand = new Random();
-        int randomX = rand.nextInt(10);
+        int randomX = rand.nextInt(5)*2;
         int randomY = rand.nextInt(10);
         System.out.println(randomX+" "+randomY);
 
-        randomX = randomX * 60 + 15;
         if (randomY % 2 == 0)
         {
-            randomX += 60;
+            randomX = randomX + 1;
         }
+
+        randomX = randomX * 60 + 15;
         randomY = randomY * 60 + 15;
 
         for (FichasTipos fichaIteracion: fichitas)
         {
             if ((fichaIteracion.getPos().x == randomX) && (fichaIteracion.getPos().y == randomY))
+            {
+                return;
+            }
+        }
+
+        for (FichasPowerUps fichaIteracionUps: fichitasUps)
+        {
+            if ((fichaIteracionUps.getPos().x == randomX) && (fichaIteracionUps.getPos().y == randomY))
             {
                 return;
             }
@@ -125,5 +141,33 @@ public class FichasPowerUps extends Ficha {
         System.out.println(posUps);
         FichasPowerUps nuevaFicha = new FichasPowerUps(posUps, ultimoid+1, rand.nextInt(5));
         fichitasUps.add(nuevaFicha);
+    }
+
+    public void usarPowerUps() {
+        int tipo = this.getType();
+        if (tipo == 0)
+        {
+
+        }
+        if (tipo == 1)
+        {
+
+        }
+        if (tipo == 2)
+        {
+
+        }
+        if (tipo == 3)
+        {
+
+        }
+        if (tipo == 4)
+        {
+
+        }
+
+
+        // ultima linea
+        this.deActivate();
     }
 }

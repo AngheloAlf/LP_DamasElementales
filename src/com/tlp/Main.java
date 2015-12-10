@@ -2,6 +2,7 @@ import com.tlp.FichasTipos;
 import com.tlp.FichasPowerUps;
 import com.tlp.Tablero;
 
+import javafx.scene.control.Tab;
 import lp.motor.Application;
 import lp.motor.Context;
 import lp.motor.Element;
@@ -19,6 +20,8 @@ public class Main implements Context
     private boolean turnoJ1 = true;
     private int cantidadTurnos = 1;
     private ArrayList<FichasPowerUps> fichitasUps = new ArrayList<FichasPowerUps>();
+    private FichasPowerUps powerUpUsado;
+    private boolean proceso;
 
     @Override
     public void update(MouseHandler mouseHandler)
@@ -50,10 +53,16 @@ public class Main implements Context
                 {
                     if (Tablero.placeFicha(fichitas, datos.getID(), pos, true))
                     {
+                        FichasPowerUps.agregarFichaRandom(fichitas, fichitasUps);
                         datos.press(false);
+
+                        powerUpUsado = Tablero.detectarColisionFichas(fichitas, fichitasUps);
+                        if (powerUpUsado != null)
+                        {
+                            proceso = true;
+                        }
                         turnoJ1 = !turnoJ1;
                         cantidadTurnos += 1;
-                        FichasPowerUps.agregarFichaRandom(fichitas, fichitasUps, cantidadTurnos);
                     }
                 } else {
                     if (aux.isPressed())
@@ -74,11 +83,11 @@ public class Main implements Context
         // aquí, y solo aquí, puede dibujar cosas en la pantalla.
         Tablero.dibujarTablero(graphics);
 
+        Tablero.dibujarPowerUps(graphics, fichitasUps);
+
         Tablero.dibujarFichas(graphics, fichitas);
 
         Tablero.dibujarFichaMouse(graphics, datos, pos);
-
-        Tablero.dibujarPowerUps(graphics, fichitasUps);
 
         Tablero.dibujarPuntuacion(graphics, turnoJ1, fichitas, cantidadTurnos);
     }
