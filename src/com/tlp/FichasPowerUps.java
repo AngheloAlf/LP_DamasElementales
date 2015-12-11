@@ -231,8 +231,10 @@ public class FichasPowerUps extends Ficha {
         }
         if (tipo == 2)
         {
-            if (Tablero.tomarFicha(datos, Tablero.getFichasTipos(fichitas, pos.x, pos.y), turnoJ1))
+            FichasTipos aux = Tablero.getFichasTipos(fichitas, pos.x, pos.y);
+            if ((aux !=null) && Tablero.detectarPosible(fichitas, aux.getPos(), turnoJ1) && (Tablero.tomarFicha(datos, aux, turnoJ1)))
             {
+                datos.setObligada(true);
                 this.deActivate();
                 return false;
             }

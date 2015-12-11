@@ -34,11 +34,14 @@ public class Main implements Context
             if (!proceso)
             {
                 aux = Tablero.getFichasTipos(fichitas, pos.x, pos.y);
-                if (!datos.isPressed()) {
+                if (!datos.isPressed())
+                {
                     Tablero.tomarFicha(datos, aux, cantidadTurnos%2 == 1);
                 } else {
-                    if (aux == null) {
-                        if (Tablero.placeFicha(fichitas, datos.getID(), pos, true, cantidadTurnos%2 == 1)) {
+                    if (aux == null)
+                    {
+                        if (Tablero.placeFicha(fichitas, datos.getID(), pos, true, cantidadTurnos%2 == 1))
+                        {
                             FichasPowerUps.agregarFichaRandom(fichitas, fichitasUps);
                             datos.press(false);
 
@@ -51,11 +54,12 @@ public class Main implements Context
                             cantidadTurnos += 1;
                         }
                     } else {
-                        if (aux.isPressed())
+                        if ((aux.isPressed()) && !datos.isObligada())
                         {
                             if (Tablero.placeFicha(fichitas, datos.getID(), datos.getPos(), false, cantidadTurnos%2 == 1))
                             {
                                 datos.press(false);
+                                datos.setObligada(false);
                             }
                         }
                     }

@@ -14,6 +14,7 @@ public class FichasTipos extends Ficha implements Element {
     protected boolean presionada = false;
     protected boolean comida = false;
     protected boolean reina = false;
+    protected boolean obligada = false;
 
     public FichasTipos(Point pos, Element.Type tipo, int id) {
         super(pos, id);
@@ -97,6 +98,16 @@ public class FichasTipos extends Ficha implements Element {
     public boolean isReina()
     {
         return this.reina;
+    }
+
+    public void setObligada(boolean ob)
+    {
+        this.obligada = ob;
+    }
+
+    public boolean isObligada()
+    {
+        return this.obligada;
     }
 
     public Color getColor()

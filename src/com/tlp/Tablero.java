@@ -341,4 +341,28 @@ public class Tablero {
         }
         return null;
     }
+
+    public static boolean detectarPosible(ArrayList<FichasTipos> fichitas, Point pos, boolean turnoJ1)
+    {
+        int contador = 0;
+        for(FichasTipos fichaIteracion: fichitas)
+        {
+            if ((fichaIteracion.getPos().x+60 == pos.x) || (fichaIteracion.getPos().x-60 == pos.x))
+            {
+                if ((turnoJ1) && (fichaIteracion.getPos().y-60 == pos.y))
+                {
+                    contador += 1;
+                }
+                if ((!turnoJ1) && (fichaIteracion.getPos().y+60 == pos.y))
+                {
+                    contador += 1;
+                }
+                if (contador == 2)
+                {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
