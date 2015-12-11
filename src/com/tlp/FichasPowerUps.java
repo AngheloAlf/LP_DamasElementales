@@ -15,6 +15,7 @@ public class FichasPowerUps extends Ficha {
     protected boolean activa = true;
     protected int tipoUp;
     protected int dueno = -1;
+    protected int contador = 0;
 
     public FichasPowerUps(Point pos, int id, int tipoUp) {
         super(pos, id);
@@ -49,6 +50,16 @@ public class FichasPowerUps extends Ficha {
     public int getDueno()
     {
         return this.dueno;
+    }
+
+    public void aumentarContador()
+    {
+        this.contador += 1;
+    }
+
+    public int getContador()
+    {
+        return this.contador;
     }
 
     public Color getColor()
@@ -166,7 +177,7 @@ public class FichasPowerUps extends Ficha {
         }
         Point posUps = new Point(randomX, randomY);
         System.out.println(posUps);
-        FichasPowerUps nuevaFicha = new FichasPowerUps(posUps, ultimoid+1, 2);///rand.nextInt(5));
+        FichasPowerUps nuevaFicha = new FichasPowerUps(posUps, ultimoid+1, 0);///rand.nextInt(5));
         fichitasUps.add(nuevaFicha);
     }
 
@@ -174,7 +185,19 @@ public class FichasPowerUps extends Ficha {
         int tipo = this.getType();
         if (tipo == 0)
         {
-            return false;
+            if (this.getContador() == 0 && (Tablero.tomarFicha(datos, Tablero.getFichasTipos(fichitas, pos.x, pos.y), !turnoJ1)))
+            {
+                this.aumentarContador();
+            }
+            if ((this.getContador() == 1) && Tablero.getFichasTipos(fichitas, pos.x, pos.y) == null)
+            {
+                if (Tablero.placeFicha(fichitas, datos.getID(), pos, true, turnoJ1))
+                {
+                    datos.press(false);
+                    this.deActivate();
+                    return false;
+                }
+            }
         }
         if (tipo == 1)
         {

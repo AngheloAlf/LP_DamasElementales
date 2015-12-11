@@ -37,13 +37,7 @@ public class Tablero {
         p.drawString("Jugador 1", 620, 25);
         p.drawString("Jugador 2", 620, 575);
 
-        p.drawString("Turno de:", 620, 200);
-        if (turnoJ1)
-        {
-            p.drawString("Jugador 1", 640, 220);
-        } else {
-            p.drawString("Jugador 2", 640, 220);
-        }
+
 
         p.drawString("Turno    "+cantidadTurnos, 620, 390);
 
@@ -70,14 +64,27 @@ public class Tablero {
         if ((powerUpUsado != null) && (powerUpUsado.isActiva()))
         {
             p.drawString("Jugador "+(powerUpUsado.getDueno()+1), 630, 280);
-            p.drawString("Seleccione una ficha enemiga", 620, 300);
             if (powerUpUsado.getType() == 4)
             {
+                p.drawString("Seleccione una ficha enemiga", 620, 300);
                 p.drawString("para transformala en tuya", 620, 320);
             }
             if (powerUpUsado.getType() == 2)
             {
-                p.drawString("para que el enemigo la mueva", 620,320);
+                p.drawString("Seleccione una ficha enemiga", 620, 300);
+                p.drawString("para que el enemigo la mueva", 620, 320);
+            }
+            if (powerUpUsado.getType() == 0)
+            {
+                p.drawString("Retroceda una ficha", 620, 300);
+            }
+        } else {
+            p.drawString("Turno de:", 620, 200);
+            if (turnoJ1)
+            {
+                p.drawString("Jugador 1", 640, 220);
+            } else {
+                p.drawString("Jugador 2", 640, 220);
             }
         }
     }
@@ -246,7 +253,7 @@ public class Tablero {
         return false;
     }
 
-    public static boolean placeFicha(ArrayList<FichasTipos> fichitas, int id, Point newFichaPos, boolean valido)
+    public static boolean placeFicha(ArrayList<FichasTipos> fichitas, int id, Point newFichaPos, boolean valido, boolean jugador)
     {
         if ((newFichaPos.x > 0) && (newFichaPos.x < 600) && ((newFichaPos.y > 0) && (newFichaPos.y < 600)))
         {
@@ -270,7 +277,7 @@ public class Tablero {
                                 }
                             }
                             else{
-                                if (((id%2 == 0) && (newFichaPos.y - 60 == fichaIteracion.getPos().y)) || ((id%2 == 1) && (newFichaPos.y + 60 == fichaIteracion.getPos().y)))
+                                if (((jugador) && (newFichaPos.y - 60 == fichaIteracion.getPos().y)) || ((!jugador) && (newFichaPos.y + 60 == fichaIteracion.getPos().y)))
                                 {
                                     fichaIteracion.setPos(newFichaPos);
                                     fichaIteracion.press(false);
