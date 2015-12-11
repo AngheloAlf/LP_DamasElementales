@@ -67,10 +67,18 @@ public class Tablero {
         p.drawString("Fichas comidas: ", 630, 550);
         p.drawString(String.valueOf(puntos2), 730, 550);
 
-        if ((powerUpUsado != null) && (powerUpUsado.getType() == 4) && (powerUpUsado.isActiva()))
+        if ((powerUpUsado != null) && (powerUpUsado.isActiva()))
         {
             p.drawString("Jugador "+(powerUpUsado.getDueno()+1), 630, 280);
             p.drawString("Seleccione una ficha enemiga", 620, 300);
+            if (powerUpUsado.getType() == 4)
+            {
+                p.drawString("para transformala en tuya", 620, 320);
+            }
+            if (powerUpUsado.getType() == 2)
+            {
+                p.drawString("para que el enemigo la mueva", 620,320);
+            }
         }
     }
 
@@ -135,7 +143,7 @@ public class Tablero {
         }
     }
 
-    public static void tomarFicha(FichasTipos datos, FichasTipos aux, boolean turnoJ1)
+    public static boolean tomarFicha(FichasTipos datos, FichasTipos aux, boolean turnoJ1)
     {
         if (aux != null)
         {
@@ -143,13 +151,17 @@ public class Tablero {
             {
                 aux.press(true);
                 datos.copyFicha(aux);
+                return true;
             }
             if (!(turnoJ1) && (aux.getID()%2 == 1))
             {
                 aux.press(true);
                 datos.copyFicha(aux);
+                return true;
             }
-        }    }
+        }
+        return false;
+    }
 
     public static FichasTipos getFichasTipos(ArrayList<FichasTipos> fichitas, int posx, int posy)
     {

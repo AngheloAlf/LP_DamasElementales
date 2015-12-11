@@ -132,7 +132,6 @@ public class FichasPowerUps extends Ficha {
         Random rand = new Random();
         int randomX = rand.nextInt(5)*2;
         int randomY = rand.nextInt(10);
-        System.out.println(randomX+" "+randomY);
 
         if (randomY % 2 == 0)
         {
@@ -171,7 +170,7 @@ public class FichasPowerUps extends Ficha {
         fichitasUps.add(nuevaFicha);
     }
 
-    public boolean usarPowerUps(boolean proceso, ArrayList<FichasTipos> fichitas, int idF, Point pos) {
+    public boolean usarPowerUps(boolean proceso, ArrayList<FichasTipos> fichitas, FichasTipos datos, int idF, Point pos, boolean turnoJ1) {
         int tipo = this.getType();
         if (tipo == 0)
         {
@@ -181,10 +180,14 @@ public class FichasPowerUps extends Ficha {
         {
             return false;
         }
+        System.out.println(pos);
         if (tipo == 2)
         {
-            
-            return false;
+            if (Tablero.tomarFicha(datos, Tablero.getFichasTipos(fichitas, pos.x, pos.y), turnoJ1))
+            {
+                this.deActivate();
+                return false;
+            }
         }
         if (tipo == 3)
         {

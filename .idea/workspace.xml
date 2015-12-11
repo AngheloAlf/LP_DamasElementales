@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef410dcd-52e6-4373-ba4a-9b1f257a8bc3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/tlp/FichasPowerUps.java" afterPath="$PROJECT_DIR$/src/com/tlp/FichasPowerUps.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/tlp/Main.java" afterPath="$PROJECT_DIR$/src/com/tlp/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/tlp/Tablero.java" afterPath="$PROJECT_DIR$/src/com/tlp/Tablero.java" />
@@ -51,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FichasPowerUps.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FichasPowerUps.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/tlp/FichasPowerUps.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6086956">
-              <caret line="185" column="12" selection-start-line="185" selection-start-column="12" selection-end-line="185" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="185" column="90" selection-start-line="185" selection-start-column="90" selection-end-line="185" selection-end-column="90" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
@@ -67,8 +66,8 @@
       <file leaf-file-name="Tablero.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/tlp/Tablero.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.448276">
-              <caret line="308" column="45" selection-start-line="308" selection-start-column="45" selection-end-line="308" selection-end-column="45" />
+            <state vertical-scroll-proportion="-9.413794">
+              <caret line="159" column="28" selection-start-line="159" selection-start-column="28" selection-end-line="159" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#dibujarTablero#0;class#Tablero#0" expanded="false" />
@@ -80,11 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/tlp/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="73" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="73" />
+            <state vertical-scroll-proportion="0.39130434">
+              <caret line="84" column="65" selection-start-line="84" selection-start-column="65" selection-end-line="84" selection-end-column="65" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -117,9 +116,9 @@
         <option value="$PROJECT_DIR$/src/com/tlp/DatosPresionado.java" />
         <option value="$PROJECT_DIR$/src/com/tlp/Ficha.java" />
         <option value="$PROJECT_DIR$/src/com/tlp/FichasTipos.java" />
-        <option value="$PROJECT_DIR$/src/com/tlp/Main.java" />
         <option value="$PROJECT_DIR$/src/com/tlp/Tablero.java" />
         <option value="$PROJECT_DIR$/src/com/tlp/FichasPowerUps.java" />
+        <option value="$PROJECT_DIR$/src/com/tlp/Main.java" />
       </list>
     </option>
   </component>
@@ -1037,30 +1036,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/tlp/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="73" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="73" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/tlp/Tablero.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.448276">
-          <caret line="308" column="45" selection-start-line="308" selection-start-column="45" selection-end-line="308" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#dibujarTablero#0;class#Tablero#0" expanded="false" />
-            <element signature="method#drawFicha#0;class#Tablero#0" expanded="false" />
-            <element signature="method#dibujarFichas#0;class#Tablero#0" expanded="false" />
-            <element signature="method#dibujarPowerUps#0;class#Tablero#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/tlp/FichasTipos.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1075,11 +1050,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/tlp/FichasPowerUps.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6086956">
-          <caret line="185" column="12" selection-start-line="185" selection-start-column="12" selection-end-line="185" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="185" column="90" selection-start-line="185" selection-start-column="90" selection-end-line="185" selection-end-column="90" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/tlp/Tablero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.413794">
+          <caret line="159" column="28" selection-start-line="159" selection-start-column="28" selection-end-line="159" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#dibujarTablero#0;class#Tablero#0" expanded="false" />
+            <element signature="method#drawFicha#0;class#Tablero#0" expanded="false" />
+            <element signature="method#dibujarFichas#0;class#Tablero#0" expanded="false" />
+            <element signature="method#dibujarPowerUps#0;class#Tablero#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/tlp/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39130434">
+          <caret line="84" column="65" selection-start-line="84" selection-start-column="65" selection-end-line="84" selection-end-column="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

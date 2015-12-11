@@ -17,7 +17,6 @@ public class Main implements Context
     private ArrayList<FichasTipos> fichitas = FichasTipos.hacerListaFichas();
     private FichasTipos datos = new FichasTipos(pos, Element.Type.values()[0], -1);
     private FichasTipos aux;
-    private boolean turnoJ1 = true;
     private int cantidadTurnos = 1;
     private ArrayList<FichasPowerUps> fichitasUps = new ArrayList<FichasPowerUps>();
     private FichasPowerUps powerUpUsado;
@@ -32,12 +31,11 @@ public class Main implements Context
         pos = mouseHandler.getMousePosition();
         if (mouseHandler.isButtonJustPressed())
         {
-            System.out.println("Proceso: "+proceso);
             if (!proceso)
             {
                 aux = Tablero.getFichasTipos(fichitas, pos.x, pos.y);
                 if (!datos.isPressed()) {
-                    Tablero.tomarFicha(datos, aux, turnoJ1);
+                    Tablero.tomarFicha(datos, aux, cantidadTurnos%2 == 1);
                 } else {
                     if (aux == null) {
                         if (Tablero.placeFicha(fichitas, datos.getID(), pos, true)) {
@@ -49,9 +47,11 @@ public class Main implements Context
                             {
                                 proceso = true;
                                 powerUpUsado.setDueno(datos.getID()%2);
-                                proceso = powerUpUsado.usarPowerUps(proceso, fichitas, datos.getID(), pos);
+                                if (powerUpUsado.getType() == 4)
+                                {
+                                    proceso = powerUpUsado.usarPowerUps(proceso, fichitas, datos, datos.getID(), pos, cantidadTurnos%2 == 1);
+                                }
                             }
-                            turnoJ1 = !turnoJ1;
                             cantidadTurnos += 1;
                         }
                     } else {
@@ -65,7 +65,7 @@ public class Main implements Context
                     }
                 }
             } else {
-                proceso = powerUpUsado.usarPowerUps(proceso, fichitas, datos.getID(), pos);
+                proceso = powerUpUsado.usarPowerUps(proceso, fichitas, datos, datos.getID(), pos, cantidadTurnos%2 == 1);
             }
         }
     }
@@ -82,7 +82,7 @@ public class Main implements Context
 
         Tablero.dibujarFichaMouse(graphics, datos, pos);
 
-        Tablero.dibujarPuntuacion(graphics, turnoJ1, fichitas, cantidadTurnos, powerUpUsado);
+        Tablero.dibujarPuntuacion(graphics, cantidadTurnos%2 == 1, fichitas, cantidadTurnos, powerUpUsado);
     }
 
     public static void main(String[] args)
