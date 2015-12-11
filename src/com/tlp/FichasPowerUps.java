@@ -133,6 +133,19 @@ public class FichasPowerUps extends Ficha {
             } else {
                 aux.setID(ultimoID + 2);
             }
+            if (aux.getID()%2 == 1)
+            {
+                if (pos.y == 15)
+                {
+                    aux.hacerReina();
+                }
+            } else {
+                if (pos.y == 555)
+                {
+                    aux.hacerReina();
+                }
+            }
+
             return true;
         }
         return false;
@@ -176,7 +189,7 @@ public class FichasPowerUps extends Ficha {
             }
         }
         Point posUps = new Point(randomX, randomY);
-        FichasPowerUps nuevaFicha = new FichasPowerUps(posUps, ultimoid+1, 2);//rand.nextInt(5));
+        FichasPowerUps nuevaFicha = new FichasPowerUps(posUps, ultimoid+1, 4);//rand.nextInt(5));
         fichitasUps.add(nuevaFicha);
     }
 

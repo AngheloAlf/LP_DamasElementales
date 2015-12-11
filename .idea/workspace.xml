@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ef410dcd-52e6-4373-ba4a-9b1f257a8bc3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/tlp/FichasPowerUps.java" afterPath="$PROJECT_DIR$/src/com/tlp/FichasPowerUps.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/tlp/FichasTipos.java" afterPath="$PROJECT_DIR$/src/com/tlp/FichasTipos.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/tlp/Main.java" afterPath="$PROJECT_DIR$/src/com/tlp/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/tlp/Tablero.java" afterPath="$PROJECT_DIR$/src/com/tlp/Tablero.java" />
     </list>
     <ignored path="LP_DamasElementales.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,15 +55,11 @@
       <file leaf-file-name="FichasPowerUps.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/tlp/FichasPowerUps.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8695652">
-              <caret line="239" column="13" selection-start-line="239" selection-start-column="13" selection-end-line="239" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.26086956">
+              <caret line="135" column="34" selection-start-line="135" selection-start-column="34" selection-end-line="135" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
-                <element signature="e#952#953#0" expanded="true" />
-                <element signature="e#990#991#0" expanded="true" />
-                <element signature="e#1026#1027#0" expanded="true" />
-                <element signature="e#1062#1063#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -622,10 +615,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
-            <element signature="e#952#953#0" expanded="true" />
-            <element signature="e#990#991#0" expanded="true" />
-            <element signature="e#1026#1027#0" expanded="true" />
-            <element signature="e#1062#1063#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -694,10 +683,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
-            <element signature="e#952#953#0" expanded="true" />
-            <element signature="e#990#991#0" expanded="true" />
-            <element signature="e#1026#1027#0" expanded="true" />
-            <element signature="e#1062#1063#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -767,10 +752,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
-            <element signature="e#952#953#0" expanded="true" />
-            <element signature="e#990#991#0" expanded="true" />
-            <element signature="e#1026#1027#0" expanded="true" />
-            <element signature="e#1062#1063#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -816,10 +797,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
-            <element signature="e#952#953#0" expanded="true" />
-            <element signature="e#990#991#0" expanded="true" />
-            <element signature="e#1026#1027#0" expanded="true" />
-            <element signature="e#1062#1063#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -865,10 +842,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
-            <element signature="e#952#953#0" expanded="true" />
-            <element signature="e#990#991#0" expanded="true" />
-            <element signature="e#1026#1027#0" expanded="true" />
-            <element signature="e#1062#1063#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -914,10 +887,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
-            <element signature="e#952#953#0" expanded="true" />
-            <element signature="e#990#991#0" expanded="true" />
-            <element signature="e#1026#1027#0" expanded="true" />
-            <element signature="e#1062#1063#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -963,10 +932,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
-            <element signature="e#952#953#0" expanded="true" />
-            <element signature="e#990#991#0" expanded="true" />
-            <element signature="e#1026#1027#0" expanded="true" />
-            <element signature="e#1062#1063#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1012,10 +977,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
-            <element signature="e#952#953#0" expanded="true" />
-            <element signature="e#990#991#0" expanded="true" />
-            <element signature="e#1026#1027#0" expanded="true" />
-            <element signature="e#1062#1063#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1061,10 +1022,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
-            <element signature="e#952#953#0" expanded="true" />
-            <element signature="e#990#991#0" expanded="true" />
-            <element signature="e#1026#1027#0" expanded="true" />
-            <element signature="e#1062#1063#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1202,15 +1159,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/tlp/FichasPowerUps.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8695652">
-          <caret line="239" column="13" selection-start-line="239" selection-start-column="13" selection-end-line="239" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.26086956">
+          <caret line="135" column="34" selection-start-line="135" selection-start-column="34" selection-end-line="135" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
-            <element signature="e#952#953#0" expanded="true" />
-            <element signature="e#990#991#0" expanded="true" />
-            <element signature="e#1026#1027#0" expanded="true" />
-            <element signature="e#1062#1063#0" expanded="true" />
           </folding>
         </state>
       </provider>
