@@ -47,10 +47,6 @@ public class Main implements Context
                             {
                                 proceso = true;
                                 powerUpUsado.setDueno(datos.getID()%2);
-                                if (powerUpUsado.getType() == 4)
-                                {
-                                    proceso = powerUpUsado.usarPowerUps(proceso, fichitas, datos, datos.getID(), pos, cantidadTurnos%2 == 1);
-                                }
                             }
                             cantidadTurnos += 1;
                         }

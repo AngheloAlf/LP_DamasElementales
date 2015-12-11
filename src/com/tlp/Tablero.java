@@ -64,6 +64,11 @@ public class Tablero {
         if ((powerUpUsado != null) && (powerUpUsado.isActiva()))
         {
             p.drawString("Jugador "+(powerUpUsado.getDueno()+1), 630, 280);
+            if (powerUpUsado.getType() == 3)
+            {
+                p.drawString("Haga click en la pantalla", 620, 300);
+                p.drawString("para transformar su ficha", 620, 320);
+            }
             if (powerUpUsado.getType() == 4)
             {
                 p.drawString("Seleccione una ficha enemiga", 620, 300);
@@ -77,6 +82,10 @@ public class Tablero {
             if (powerUpUsado.getType() == 0)
             {
                 p.drawString("Retroceda una ficha", 620, 300);
+            }
+            if (powerUpUsado.getType() == 1)
+            {
+                p.drawString("Avance "+(3-(powerUpUsado.getContador()/2))+" espacio(s)", 620, 300);
             }
         } else {
             p.drawString("Turno de:", 620, 200);

@@ -52,9 +52,9 @@ public class FichasPowerUps extends Ficha {
         return this.dueno;
     }
 
-    public void aumentarContador()
+    public void setContador(int numero)
     {
-        this.contador += 1;
+        this.contador = numero;
     }
 
     public int getContador()
@@ -176,34 +176,59 @@ public class FichasPowerUps extends Ficha {
             }
         }
         Point posUps = new Point(randomX, randomY);
-        System.out.println(posUps);
-        FichasPowerUps nuevaFicha = new FichasPowerUps(posUps, ultimoid+1, 0);///rand.nextInt(5));
+        FichasPowerUps nuevaFicha = new FichasPowerUps(posUps, ultimoid+1, 2);//rand.nextInt(5));
         fichitasUps.add(nuevaFicha);
+    }
+
+    public boolean usarCero(ArrayList<FichasTipos> fichitas, FichasTipos datos, Point pos, boolean turnoJ1, boolean turnoJ2)
+    {
+        FichasTipos aux = Tablero.getFichasTipos(fichitas, pos.x, pos.y);
+        if (this.getContador()%2 == 1)
+        {
+            if (aux == null)
+            {
+                if (Tablero.placeFicha(fichitas, datos.getID(), pos, true, turnoJ1))
+                {
+                    this.setContador(getContador() + 1);
+                    datos.press(false);
+                    return false;
+                }
+            } else {
+                if (aux.isPressed())
+                {
+                    if (Tablero.placeFicha(fichitas, datos.getID(), pos, false, turnoJ1))
+                    {
+                        datos.press(false);
+                    }
+                }
+            }
+        }
+        if ((this.getContador()%2 == 0) && (Tablero.tomarFicha(datos, aux, turnoJ2)))
+        {
+            this.setContador(getContador()+1);
+        }
+        return true;
     }
 
     public boolean usarPowerUps(boolean proceso, ArrayList<FichasTipos> fichitas, FichasTipos datos, int idF, Point pos, boolean turnoJ1) {
         int tipo = this.getType();
         if (tipo == 0)
         {
-            if (this.getContador() == 0 && (Tablero.tomarFicha(datos, Tablero.getFichasTipos(fichitas, pos.x, pos.y), !turnoJ1)))
+            if (!this.usarCero(fichitas, datos, pos, turnoJ1, !turnoJ1))
             {
-                this.aumentarContador();
-            }
-            if ((this.getContador() == 1) && Tablero.getFichasTipos(fichitas, pos.x, pos.y) == null)
-            {
-                if (Tablero.placeFicha(fichitas, datos.getID(), pos, true, turnoJ1))
-                {
-                    datos.press(false);
-                    this.deActivate();
-                    return false;
-                }
+                this.deActivate();
+                return false;
             }
         }
         if (tipo == 1)
         {
-            return false;
+            this.usarCero(fichitas, datos, pos, !turnoJ1, !turnoJ1);
+            if (this.getContador() == 6)
+            {
+                this.deActivate();
+                return false;
+            }
         }
-        System.out.println(pos);
         if (tipo == 2)
         {
             if (Tablero.tomarFicha(datos, Tablero.getFichasTipos(fichitas, pos.x, pos.y), turnoJ1))
