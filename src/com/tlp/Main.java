@@ -2,7 +2,6 @@ import com.tlp.FichasTipos;
 import com.tlp.FichasPowerUps;
 import com.tlp.Tablero;
 
-import javafx.scene.control.Tab;
 import lp.motor.Application;
 import lp.motor.Context;
 import lp.motor.Element;

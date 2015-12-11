@@ -1,7 +1,6 @@
 package com.tlp;
 
 import lp.motor.Element;
-import lp.motor.MouseHandler;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -11,13 +10,15 @@ import java.util.Random;
  * Created by Anghelo on 01-Dec-15.
  */
 
-public class FichasPowerUps extends Ficha {
+public class FichasPowerUps extends Ficha
+{
     protected boolean activa = true;
     protected int tipoUp;
     protected int dueno = -1;
     protected int contador = 0;
 
-    public FichasPowerUps(Point pos, int id, int tipoUp) {
+    public FichasPowerUps(Point pos, int id, int tipoUp)
+    {
         super(pos, id);
         this.tipoUp = tipoUp;
     }
@@ -189,7 +190,7 @@ public class FichasPowerUps extends Ficha {
             }
         }
         Point posUps = new Point(randomX, randomY);
-        FichasPowerUps nuevaFicha = new FichasPowerUps(posUps, ultimoid+1, 4);//rand.nextInt(5));
+        FichasPowerUps nuevaFicha = new FichasPowerUps(posUps, ultimoid+1, rand.nextInt(5));
         fichitasUps.add(nuevaFicha);
     }
 
@@ -223,7 +224,8 @@ public class FichasPowerUps extends Ficha {
         return true;
     }
 
-    public boolean usarPowerUps(boolean proceso, ArrayList<FichasTipos> fichitas, FichasTipos datos, int idF, Point pos, boolean turnoJ1) {
+    public boolean usarPowerUps(boolean proceso, ArrayList<FichasTipos> fichitas, FichasTipos datos, int idF, Point pos, boolean turnoJ1)
+    {
         int tipo = this.getType();
         if (tipo == 0)
         {

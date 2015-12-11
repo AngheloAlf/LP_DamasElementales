@@ -6,7 +6,8 @@ import java.util.ArrayList;
 /**
  * Created by Anghelo on 08-Dec-15.
  */
-public class Tablero {
+public class Tablero
+{
     public static void dibujarTablero(Graphics p)
     {
         boolean black=false;
@@ -36,8 +37,6 @@ public class Tablero {
         p.setColor(Color.BLACK);
         p.drawString("Jugador 1", 620, 25);
         p.drawString("Jugador 2", 620, 575);
-
-
 
         p.drawString("Turno    "+cantidadTurnos, 620, 390);
 
@@ -139,7 +138,8 @@ public class Tablero {
     {
         if (datos.isPressed())
         {
-            if (datos.getID()%2 == 1){
+            if (datos.getID()%2 == 1)
+            {
                 drawFicha(graphics, datos, false, pos);
             } else {
                 drawFicha(graphics, datos, true, pos);
@@ -242,7 +242,8 @@ public class Tablero {
                         if (((newFichaPos.y + away == fichaIteracion.getPos().y) && (id % 2 == jugador)) || ((fichaIteracion.isReina()) && (newFichaPos.y - away == fichaIteracion.getPos().y)))
                         {
                             Point nullPos = new Point(-1, -1);
-                            if (fichaIteracion.testAgainst(fichaCiclo)) {
+                            if (fichaIteracion.testAgainst(fichaCiclo))
+                            {
                                 fichaCiclo.setPos(nullPos);
                                 fichaCiclo.comer();
                                 fichaIteracion.setPos(newFichaPos);
@@ -255,7 +256,6 @@ public class Tablero {
                             return true;
                         }
                     }
-
                 }
             }
         }

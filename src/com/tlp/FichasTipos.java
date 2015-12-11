@@ -9,14 +9,16 @@ import java.util.Random;
 /**
  * Created by Anghelo on 01-Dec-15.
  */
-public class FichasTipos extends Ficha implements Element {
+public class FichasTipos extends Ficha implements Element
+{
     protected Element.Type tipo;
     protected boolean presionada = false;
     protected boolean comida = false;
     protected boolean reina = false;
     protected boolean obligada = false;
 
-    public FichasTipos(Point pos, Element.Type tipo, int id) {
+    public FichasTipos(Point pos, Element.Type tipo, int id)
+    {
         super(pos, id);
         this.tipo = tipo;
     }
@@ -30,13 +32,16 @@ public class FichasTipos extends Ficha implements Element {
     public static int getCorrespondingType(Element.Type tipo)
     {
         Element.Type[] c =  Element.Type.values();
-        if (tipo == c[0]){
+        if (tipo == c[0])
+        {
             return 0;
         }
-        if (tipo == c[1]){
+        if (tipo == c[1])
+        {
             return 1;
         }
-        if (tipo == c[2]){
+        if (tipo == c[2])
+        {
             return 2;
         }
         return -1;
@@ -128,7 +133,8 @@ public class FichasTipos extends Ficha implements Element {
         return Color.YELLOW;
     }
 
-    public void copyFicha(FichasTipos fichaIteracion){
+    public void copyFicha(FichasTipos fichaIteracion)
+    {
         this.setType(fichaIteracion.getType());
         this.press(fichaIteracion.isPressed());
         this.setPos(fichaIteracion.getPos());
@@ -169,7 +175,8 @@ public class FichasTipos extends Ficha implements Element {
             contadorPos2 = new Point(contadorPos2.x, contadorPos2.y);
             contadorPos1.x += 120;
             contadorPos2.x += 120;
-            if ((i + 1) % 5 == 0) {
+            if ((i + 1) % 5 == 0)
+            {
                 contadorPos1.y += 60;
                 contadorPos2.y += 60;
             }

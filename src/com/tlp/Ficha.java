@@ -1,16 +1,12 @@
 package com.tlp;
 
-import lp.motor.Element;
-
 import java.awt.*;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * Created by nontraxx on 27-11-15.
  */
-public class Ficha {
+public class Ficha
+{
     protected Point pos;
     protected int id;
 
@@ -39,6 +35,4 @@ public class Ficha {
     {
         this.id = id;
     }
-
-
 }
