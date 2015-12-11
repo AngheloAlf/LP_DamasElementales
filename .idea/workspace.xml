@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef410dcd-52e6-4373-ba4a-9b1f257a8bc3" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/tlp/FichasPowerUps.java" afterPath="$PROJECT_DIR$/src/com/tlp/FichasPowerUps.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/tlp/Main.java" afterPath="$PROJECT_DIR$/src/com/tlp/Main.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/tlp/Tablero.java" afterPath="$PROJECT_DIR$/src/com/tlp/Tablero.java" />
@@ -53,20 +54,11 @@
       <file leaf-file-name="FichasPowerUps.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/tlp/FichasPowerUps.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47826087">
-              <caret line="180" column="33" selection-start-line="180" selection-start-column="33" selection-end-line="180" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.6086956">
+              <caret line="185" column="12" selection-start-line="185" selection-start-column="12" selection-end-line="185" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
-                <element signature="e#621#622#0" expanded="true" />
-                <element signature="e#655#656#0" expanded="true" />
-                <element signature="e#696#697#0" expanded="true" />
-                <element signature="e#730#731#0" expanded="true" />
-                <element signature="e#773#774#0" expanded="true" />
-                <element signature="e#807#808#0" expanded="true" />
-                <element signature="e#840#841#0" expanded="true" />
-                <element signature="e#873#874#0" expanded="true" />
-                <element signature="method#agregarFichaRandom#0;class#FichasPowerUps#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -75,14 +67,13 @@
       <file leaf-file-name="Tablero.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/tlp/Tablero.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.137931">
-              <caret line="71" column="62" selection-start-line="71" selection-start-column="62" selection-end-line="71" selection-end-column="62" />
+            <state vertical-scroll-proportion="-5.448276">
+              <caret line="308" column="45" selection-start-line="308" selection-start-column="45" selection-end-line="308" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#dibujarTablero#0;class#Tablero#0" expanded="false" />
                 <element signature="method#drawFicha#0;class#Tablero#0" expanded="false" />
                 <element signature="method#dibujarFichas#0;class#Tablero#0" expanded="false" />
-                <element signature="method#dibujarFichaMouse#0;class#Tablero#0" expanded="false" />
                 <element signature="method#dibujarPowerUps#0;class#Tablero#0" expanded="false" />
               </folding>
             </state>
@@ -93,7 +84,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/tlp/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="62" column="89" selection-start-line="62" selection-start-column="89" selection-end-line="62" selection-end-column="89" />
+              <caret line="46" column="73" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="73" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -126,8 +117,8 @@
         <option value="$PROJECT_DIR$/src/com/tlp/DatosPresionado.java" />
         <option value="$PROJECT_DIR$/src/com/tlp/Ficha.java" />
         <option value="$PROJECT_DIR$/src/com/tlp/FichasTipos.java" />
-        <option value="$PROJECT_DIR$/src/com/tlp/Tablero.java" />
         <option value="$PROJECT_DIR$/src/com/tlp/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/tlp/Tablero.java" />
         <option value="$PROJECT_DIR$/src/com/tlp/FichasPowerUps.java" />
       </list>
     </option>
@@ -170,9 +161,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -237,6 +227,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -567,14 +558,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/tlp/Tablero.java</url>
-          <line>98</line>
-          <properties />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
@@ -593,7 +576,6 @@
             <element signature="method#dibujarTablero#0;class#Tablero#0" expanded="false" />
             <element signature="method#drawFicha#0;class#Tablero#0" expanded="false" />
             <element signature="method#dibujarFichas#0;class#Tablero#0" expanded="false" />
-            <element signature="method#dibujarFichaMouse#0;class#Tablero#0" expanded="false" />
             <element signature="method#dibujarPowerUps#0;class#Tablero#0" expanded="false" />
           </folding>
         </state>
@@ -606,15 +588,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#655#656#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
-            <element signature="e#730#731#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
-            <element signature="e#807#808#0" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
-            <element signature="e#873#874#0" expanded="true" />
-            <element signature="method#agregarFichaRandom#0;class#FichasPowerUps#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -658,7 +631,6 @@
             <element signature="method#dibujarTablero#0;class#Tablero#0" expanded="false" />
             <element signature="method#drawFicha#0;class#Tablero#0" expanded="false" />
             <element signature="method#dibujarFichas#0;class#Tablero#0" expanded="false" />
-            <element signature="method#dibujarFichaMouse#0;class#Tablero#0" expanded="false" />
             <element signature="method#dibujarPowerUps#0;class#Tablero#0" expanded="false" />
           </folding>
         </state>
@@ -671,15 +643,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#655#656#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
-            <element signature="e#730#731#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
-            <element signature="e#807#808#0" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
-            <element signature="e#873#874#0" expanded="true" />
-            <element signature="method#agregarFichaRandom#0;class#FichasPowerUps#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -741,15 +704,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#655#656#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
-            <element signature="e#730#731#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
-            <element signature="e#807#808#0" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
-            <element signature="e#873#874#0" expanded="true" />
-            <element signature="method#agregarFichaRandom#0;class#FichasPowerUps#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -791,15 +745,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#655#656#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
-            <element signature="e#730#731#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
-            <element signature="e#807#808#0" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
-            <element signature="e#873#874#0" expanded="true" />
-            <element signature="method#agregarFichaRandom#0;class#FichasPowerUps#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -841,15 +786,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#655#656#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
-            <element signature="e#730#731#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
-            <element signature="e#807#808#0" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
-            <element signature="e#873#874#0" expanded="true" />
-            <element signature="method#agregarFichaRandom#0;class#FichasPowerUps#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -891,15 +827,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#655#656#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
-            <element signature="e#730#731#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
-            <element signature="e#807#808#0" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
-            <element signature="e#873#874#0" expanded="true" />
-            <element signature="method#agregarFichaRandom#0;class#FichasPowerUps#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -941,15 +868,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#655#656#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
-            <element signature="e#730#731#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
-            <element signature="e#807#808#0" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
-            <element signature="e#873#874#0" expanded="true" />
-            <element signature="method#agregarFichaRandom#0;class#FichasPowerUps#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -991,15 +909,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#655#656#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
-            <element signature="e#730#731#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
-            <element signature="e#807#808#0" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
-            <element signature="e#873#874#0" expanded="true" />
-            <element signature="method#agregarFichaRandom#0;class#FichasPowerUps#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1041,15 +950,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#655#656#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
-            <element signature="e#730#731#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
-            <element signature="e#807#808#0" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
-            <element signature="e#873#874#0" expanded="true" />
-            <element signature="method#agregarFichaRandom#0;class#FichasPowerUps#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1107,17 +1007,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/src/com/tlp/lpengine.jar!/lp/motor/Application.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23880596">
-          <caret line="41" column="28" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/src/com/tlp/lpengine.jar!/lp/motor/Context.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.32692307">
           <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/src/com/tlp/lpengine.jar!/lp/motor/Element.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.4074073">
+          <caret line="10" column="24" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/src/com/tlp/lpengine.jar!/lp/motor/Application.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.4814816">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1129,10 +1037,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/src/com/tlp/lpengine.jar!/lp/motor/Element.class">
+    <entry file="file://$PROJECT_DIR$/src/com/tlp/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.4074073">
-          <caret line="10" column="24" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="73" selection-start-line="46" selection-start-column="51" selection-end-line="46" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/tlp/Tablero.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.448276">
+          <caret line="308" column="45" selection-start-line="308" selection-start-column="45" selection-end-line="308" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#dibujarTablero#0;class#Tablero#0" expanded="false" />
+            <element signature="method#drawFicha#0;class#Tablero#0" expanded="false" />
+            <element signature="method#dibujarFichas#0;class#Tablero#0" expanded="false" />
+            <element signature="method#dibujarPowerUps#0;class#Tablero#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1148,47 +1073,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/tlp/Tablero.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.137931">
-          <caret line="71" column="62" selection-start-line="71" selection-start-column="62" selection-end-line="71" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#dibujarTablero#0;class#Tablero#0" expanded="false" />
-            <element signature="method#drawFicha#0;class#Tablero#0" expanded="false" />
-            <element signature="method#dibujarFichas#0;class#Tablero#0" expanded="false" />
-            <element signature="method#dibujarFichaMouse#0;class#Tablero#0" expanded="false" />
-            <element signature="method#dibujarPowerUps#0;class#Tablero#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/tlp/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="89" selection-start-line="62" selection-start-column="89" selection-end-line="62" selection-end-column="89" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/tlp/FichasPowerUps.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47826087">
-          <caret line="180" column="33" selection-start-line="180" selection-start-column="33" selection-end-line="180" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.6086956">
+          <caret line="185" column="12" selection-start-line="185" selection-start-column="12" selection-end-line="185" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#655#656#0" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
-            <element signature="e#730#731#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
-            <element signature="e#807#808#0" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
-            <element signature="e#873#874#0" expanded="true" />
-            <element signature="method#agregarFichaRandom#0;class#FichasPowerUps#0" expanded="false" />
           </folding>
         </state>
       </provider>

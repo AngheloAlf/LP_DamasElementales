@@ -67,7 +67,7 @@ public class Tablero {
         p.drawString("Fichas comidas: ", 630, 550);
         p.drawString(String.valueOf(puntos2), 730, 550);
 
-        if ((powerUpUsado != null) && (powerUpUsado.getType() == 4))
+        if ((powerUpUsado != null) && (powerUpUsado.getType() == 4) && (powerUpUsado.isActiva()))
         {
             p.drawString("Jugador "+(powerUpUsado.getDueno()+1), 630, 280);
             p.drawString("Seleccione una ficha enemiga", 620, 300);
@@ -111,7 +111,8 @@ public class Tablero {
         }
     }
 
-    public static void dibujarFichaMouse(Graphics graphics, FichasTipos datos, Point pos){
+    public static void dibujarFichaMouse(Graphics graphics, FichasTipos datos, Point pos)
+    {
         if (datos.isPressed())
         {
             if (datos.getID()%2 == 1){
@@ -303,7 +304,10 @@ public class Tablero {
             {
                 if ((fichaIteracion.getPos().x == fichaCicloUps.getPos().x) && (fichaIteracion.getPos().y == fichaCicloUps.getPos().y))
                 {
-                    return fichaCicloUps;
+                    if (fichaCicloUps.isActiva())
+                    {
+                        return fichaCicloUps;
+                    }
                 }
             }
         }

@@ -32,6 +32,7 @@ public class Main implements Context
         pos = mouseHandler.getMousePosition();
         if (mouseHandler.isButtonJustPressed())
         {
+            System.out.println("Proceso: "+proceso);
             if (!proceso)
             {
                 aux = Tablero.getFichasTipos(fichitas, pos.x, pos.y);
@@ -44,16 +45,20 @@ public class Main implements Context
                             datos.press(false);
 
                             powerUpUsado = Tablero.detectarColisionFichas(fichitas, fichitasUps);
-                            if (powerUpUsado != null) {
+                            if (powerUpUsado != null)
+                            {
                                 proceso = true;
+                                powerUpUsado.setDueno(datos.getID()%2);
+                                proceso = powerUpUsado.usarPowerUps(proceso, fichitas, datos.getID(), pos);
                             }
-                            powerUpUsado.setDueno(datos.getID()%2);
                             turnoJ1 = !turnoJ1;
                             cantidadTurnos += 1;
                         }
                     } else {
-                        if (aux.isPressed()) {
-                            if (Tablero.placeFicha(fichitas, datos.getID(), datos.getPos(), false)) {
+                        if (aux.isPressed())
+                        {
+                            if (Tablero.placeFicha(fichitas, datos.getID(), datos.getPos(), false))
+                            {
                                 datos.press(false);
                             }
                         }

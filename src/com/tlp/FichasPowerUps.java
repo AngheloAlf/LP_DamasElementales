@@ -67,6 +67,20 @@ public class FichasPowerUps extends Ficha {
         }
         if (this.tipoUp == 3)
         {
+            Random rand = new Random();
+            int numeroRandom = rand.nextInt(3);
+            if (numeroRandom == 0)
+            {
+                return Color.RED;
+            }
+            if (numeroRandom == 1)
+            {
+                return Color.BLUE;
+            }
+            if (numeroRandom == 2)
+            {
+                return Color.GREEN;
+            }
             return Color.lightGray;
         }
         if (this.tipoUp == 4)
@@ -88,7 +102,7 @@ public class FichasPowerUps extends Ficha {
         fichaIteracion.setType(c[tipo]);
     }
 
-    public static void transformar(ArrayList<FichasTipos> fichitas, Point pos, int id)
+    public static boolean transformar(ArrayList<FichasTipos> fichitas, Point pos, int id)
     {
         FichasTipos aux = null;
         int ultimoID = -1;
@@ -108,12 +122,13 @@ public class FichasPowerUps extends Ficha {
             } else {
                 aux.setID(ultimoID + 2);
             }
+            return true;
         }
+        return false;
     }
 
     public static void agregarFichaRandom(ArrayList<FichasTipos> fichitas, ArrayList<FichasPowerUps> fichitasUps)
     {
-
         Random rand = new Random();
         int randomX = rand.nextInt(5)*2;
         int randomY = rand.nextInt(10);
@@ -152,7 +167,7 @@ public class FichasPowerUps extends Ficha {
         }
         Point posUps = new Point(randomX, randomY);
         System.out.println(posUps);
-        FichasPowerUps nuevaFicha = new FichasPowerUps(posUps, ultimoid+1, rand.nextInt(5));
+        FichasPowerUps nuevaFicha = new FichasPowerUps(posUps, ultimoid+1, 2);///rand.nextInt(5));
         fichitasUps.add(nuevaFicha);
     }
 
@@ -160,15 +175,16 @@ public class FichasPowerUps extends Ficha {
         int tipo = this.getType();
         if (tipo == 0)
         {
-
+            return false;
         }
         if (tipo == 1)
         {
-
+            return false;
         }
         if (tipo == 2)
         {
-
+            
+            return false;
         }
         if (tipo == 3)
         {
@@ -186,10 +202,12 @@ public class FichasPowerUps extends Ficha {
         {
             pos.x = (pos.x / 60) * 60 + 15;
             pos.y = (pos.y / 60) * 60 + 15;
-            transformar(fichitas, pos, this.getDueno());
+            if(transformar(fichitas, pos, this.getDueno()))
+            {
+                this.deActivate();
+                return false;
+            }
         }
-
-
         return proceso;
     }
 }
