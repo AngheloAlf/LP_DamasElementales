@@ -197,14 +197,14 @@ public class Tablero
         return null;
     }
 
-    public static Point arreglarPos(Point newFichaPos)
+    private static Point arreglarPos(Point newFichaPos)
     {
         newFichaPos.x = (newFichaPos.x/60)*60 + 15;
         newFichaPos.y = (newFichaPos.y/60)*60 + 15;
         return newFichaPos;
     }
 
-    public static void verificarCreacionReina(FichasTipos fichaIteracion, Point newFichaPos, int id)
+    protected static void verificarCreacionReina(FichasTipos fichaIteracion, Point newFichaPos, int id)
     {
         if ((id%2 == 0) && (newFichaPos.y == 555))
         {
@@ -216,7 +216,7 @@ public class Tablero
         }
     }
 
-    public static boolean verificarComimiento(ArrayList<FichasTipos> fichitas, FichasTipos fichaIteracion, Point newFichaPos, int id, int jugador, int awayX)
+    protected static boolean verificarComimiento(ArrayList<FichasTipos> fichitas, FichasTipos fichaIteracion, Point newFichaPos, int id, int jugador, int awayX)
     {
         int away = 120;
         int otroJugador = 0;
@@ -342,7 +342,7 @@ public class Tablero
         return null;
     }
 
-    public static boolean detectarPosible(ArrayList<FichasTipos> fichitas, Point pos, boolean turnoJ1)
+    protected static boolean detectarPosible(ArrayList<FichasTipos> fichitas, Point pos, boolean turnoJ1)
     {
         int contador = 0;
         for(FichasTipos fichaIteracion: fichitas)

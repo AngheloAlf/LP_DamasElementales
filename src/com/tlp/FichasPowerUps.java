@@ -9,20 +9,34 @@ import java.util.Random;
 /**
  * Created by Anghelo on 01-Dec-15.
  */
-
+/**Clase que posee las caracteristicas de los PowerUps*/
 public class FichasPowerUps extends Ficha
 {
-    protected boolean activa = true;
-    protected int tipoUp;
-    protected int dueno = -1;
-    protected int contador = 0;
+    /**Almacena si el PowerUp se encuentra en el tablero*/
+    private boolean activa = true;
+    /**Almacena el tipo de PowerUps que sera la ficha. Son numeros del 0 al 4*/
+    private int tipoUp;
+    /**Se le asigna un dueño al PowerUp una vez que ya fue tomado. 0 (cero) para Jugador1 y 1 (uno) paraa jugador 2. Se inicializa en 0 (cero)*/
+    private int dueno = -1;
+    /**Un contador especial para algunos PowerUps. Se inicializa en 0 (cero)*/
+    private int contador = 0;
 
+    /**
+     * Constructor del objeto
+     * @param pos    Posicion del PowerUps
+     * @param id     ID unica de este PowerUp
+     * @param tipoUp Tipo asignado a este PowerUP
+     */
     public FichasPowerUps(Point pos, int id, int tipoUp)
     {
         super(pos, id);
         this.tipoUp = tipoUp;
     }
 
+    /**
+     * Verifica si la ficha esta en el tablero o no
+     * @return True si esta todavia en el tablero, false en caso contrario
+     */
     public boolean isActiva()
     {
         return this.activa;
@@ -63,7 +77,7 @@ public class FichasPowerUps extends Ficha
         return this.contador;
     }
 
-    public Color getColor()
+    protected Color getColor()
     {
         if (this.tipoUp == 0)
         {
@@ -102,7 +116,7 @@ public class FichasPowerUps extends Ficha
         return Color.WHITE;
     }
 
-    public void changeTypeFicha(FichasTipos fichaIteracion)
+    protected void changeTypeFicha(FichasTipos fichaIteracion)
     {
         int tipo = FichasTipos.getCorrespondingType(fichaIteracion.getType());
         tipo -= 1;
@@ -114,7 +128,7 @@ public class FichasPowerUps extends Ficha
         fichaIteracion.setType(c[tipo]);
     }
 
-    public static boolean transformar(ArrayList<FichasTipos> fichitas, Point pos, int id)
+    protected static boolean transformar(ArrayList<FichasTipos> fichitas, Point pos, int id)
     {
         FichasTipos aux = null;
         int ultimoID = -1;
@@ -194,7 +208,7 @@ public class FichasPowerUps extends Ficha
         fichitasUps.add(nuevaFicha);
     }
 
-    public boolean usarCero(ArrayList<FichasTipos> fichitas, FichasTipos datos, Point pos, boolean turnoJ1, boolean turnoJ2)
+    protected boolean usarCero(ArrayList<FichasTipos> fichitas, FichasTipos datos, Point pos, boolean turnoJ1, boolean turnoJ2)
     {
         FichasTipos aux = Tablero.getFichasTipos(fichitas, pos.x, pos.y);
         if (this.getContador()%2 == 1)

@@ -9,14 +9,26 @@ import java.util.Random;
 /**
  * Created by Anghelo on 01-Dec-15.
  */
+/**Clase que posee las caracteristicas de las damas, ademas de los 3 elementos*/
 public class FichasTipos extends Ficha implements Element
 {
-    protected Element.Type tipo;
-    protected boolean presionada = false;
-    protected boolean comida = false;
-    protected boolean reina = false;
-    protected boolean obligada = false;
+    /**Almacena el tipo (Fire, Water o Leaf) asociada a la ficha*/
+    private Element.Type tipo;
+    /**Almacena si la dama fue presionada por el mouse*/
+    private boolean presionada = false;
+    /**Almacena si la dama fue comida por otra dama*/
+    private boolean comida = false;
+    /**Almacena si la dama se transformo a reina*/
+    private boolean reina = false;
+    /**Variable auxiliar para un PowerUp.
+     * Esta almacena si esta dama fue seleccionada para ser obligada a ser movida*/
+    private boolean obligada = false;
 
+    /**Constructor del objeto
+     * @param pos   Posicion de la dama
+     * @param tipo  Tipo de la dama (Fire, Water o Leaf)
+     * @param id    ID unica para cada dama
+     * */
     public FichasTipos(Point pos, Element.Type tipo, int id)
     {
         super(pos, id);
@@ -24,12 +36,17 @@ public class FichasTipos extends Ficha implements Element
     }
 
     @Override
+    /**@return Retorna el tipo almacenado en la dama*/
     public Type getType()
     {
         return this.tipo;
     }
 
-    public static int getCorrespondingType(Element.Type tipo)
+    /**Retorna un numero asociado al tipo de elemento
+     * @param tipo  Tipo: Fire, Water o Grass
+     * @return      Retorna un numero: 0, 1 o 2 relacionado con el parametro
+     * */
+    protected static int getCorrespondingType(Element.Type tipo)
     {
         Element.Type[] c =  Element.Type.values();
         if (tipo == c[0])
@@ -48,6 +65,11 @@ public class FichasTipos extends Ficha implements Element
     }
 
     @Override
+    /**
+     * Revisa quien gana entre tu dama y la dama enemiga
+     * @param element   Dama enemiga
+     * @return          Retorna true si gana a la dama enemiga, o false si pierde
+     */
     public boolean testAgainst(Element element)
     {
         if (element != null)
@@ -70,52 +92,83 @@ public class FichasTipos extends Ficha implements Element
         return false;
     }
 
+    /** Cambia el tipo almacenado en la dama
+     * @param tipo Es el tipo nuevo por el cual se cambiara el almacenado
+     * */
     public void setType(Element.Type tipo)
     {
         this.tipo = tipo;
     }
 
+    /**Revisa si la dama ha sido presionada por el mouse
+     * @return True si esta presionada, false en caso contrario
+     */
     public boolean isPressed()
     {
         return this.presionada;
     }
 
+    /** Cambia el estado de la dama a apretado o desapretado
+     * @param presionada True o false, en caso de apretar la dama con el mouse
+     */
     public void press(boolean presionada)
     {
         this.presionada = presionada;
     }
 
+    /**Revisa si la dama ya fue comida por otra
+     * @return True si fue comida, false en caso contrario
+     */
     public boolean isComida()
     {
         return this.comida;
     }
 
+    /**Almacena que la dama fue comida
+     */
     public void comer()
     {
         this.comida = true;
     }
 
+    /**
+     * Transforma a la dama en una reina
+     */
     public void hacerReina()
     {
         this.reina = true;
     }
 
+    /**Revisa si la dama es una reina
+     * @return True si es una reina, false en caso contrario
+     */
     public boolean isReina()
     {
         return this.reina;
     }
 
+    /**Cambia el estado de la dama a obligado a moverse o no
+     * @param ob True o false segun sea el caso
+     */
     public void setObligada(boolean ob)
     {
         this.obligada = ob;
     }
 
+    /**
+     * Revisa si la dama esta obligada a moverse
+     * @return True si esta obligada a moverse, o false en caso contrario
+     */
     public boolean isObligada()
     {
         return this.obligada;
     }
 
-    public Color getColor()
+    /**
+     * Retorna un color relacionado al tipo de "this" dama
+     * @return Fire-Rojo. Water-Azul. Leaf-Verde. Si por algun motivo el tipo almacenado no coincide con alguno de los anteriores, retorna amarillo
+     */
+    protected Color getColor()
     {
         Element.Type[] c =  Element.Type.values();
         if (this.getType() == c[0])
@@ -133,7 +186,11 @@ public class FichasTipos extends Ficha implements Element
         return Color.YELLOW;
     }
 
-    public void copyFicha(FichasTipos fichaIteracion)
+    /**
+     * Copia la ficha fichaIteracion a "this"
+     * @param fichaIteracion La ficha a ser copiada
+     */
+    protected void copyFicha(FichasTipos fichaIteracion)
     {
         this.setType(fichaIteracion.getType());
         this.press(fichaIteracion.isPressed());
@@ -147,6 +204,10 @@ public class FichasTipos extends Ficha implements Element
         }
     }
 
+    /**
+     * Crea un arreglo de damas. La ID de las damas se van intercalando segun su dueño, es decir, las fichas pares son del jugador 1 y las impares del jugador 2. El elemento de cada dama se genera aleatoriamente
+     * @return Retorna un arreglo que contiene los datos de las damas de ambos jugadores
+     */
     public static ArrayList<FichasTipos> hacerListaFichas()
     {
         ArrayList<FichasTipos> fichitas = new ArrayList<FichasTipos>();
