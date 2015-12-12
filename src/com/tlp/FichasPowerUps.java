@@ -42,41 +42,72 @@ public class FichasPowerUps extends Ficha
         return this.activa;
     }
 
+    /**
+     * Desactiva el PowerUp
+     */
     public void deActivate()
     {
         this.activa = false;
     }
 
+    /**
+     * Entrega el tipo del PowerUp
+     * @return Un numero del 0 al 4, segun el orden del enunciado
+     */
     public int getType()
     {
         return this.tipoUp;
     }
 
+    /**
+     * Cambia el tipo del PowerUp
+     * @param tipo Numero del 0 al 4 que corresponde al tipo al que se desea cambiar
+     */
     public void setType(int tipo)
     {
         this.tipoUp = tipo;
     }
 
+    /**
+     * Cuando un PowerUp es tomado, se le debe asignar un dueno usando este metodo
+     * @param dueno 0 (cero) para primer jugador y 1 (uno) para segundo jugador
+     */
     public void setDueno(int dueno)
     {
         this.dueno = dueno;
     }
 
+    /**
+     * Entrega el dueno de la dama
+     * @return 0 (cero) para primer jugador y 1 (uno) para segundo jugador
+     */
     public int getDueno()
     {
         return this.dueno;
     }
 
+    /**
+     * Cambia el numero que tiene almacenado el contador
+     * @param numero El numero que guaradara
+     */
     public void setContador(int numero)
     {
         this.contador = numero;
     }
 
+    /**
+     * Entrega el contador que tenga almacenado
+     * @return Numero que almacena
+     */
     public int getContador()
     {
         return this.contador;
     }
 
+    /**
+     * Entrega el color asociado al tipo del PowerUp
+     * @return 0: Negro. 1: Amarillo. 2: Rosa. 3: Multicolor (Rojo, Azul, o Verde). 4: Cian.
+     */
     protected Color getColor()
     {
         if (this.tipoUp == 0)
@@ -116,6 +147,10 @@ public class FichasPowerUps extends Ficha
         return Color.WHITE;
     }
 
+    /**
+     * Cambia el tipo de la dama en orden Agua-Fuego-Hierba-Agua...
+     * @param fichaIteracion La dama a la cual se le cambiara el tipo
+     */
     protected void changeTypeFicha(FichasTipos fichaIteracion)
     {
         int tipo = FichasTipos.getCorrespondingType(fichaIteracion.getType());
@@ -128,6 +163,13 @@ public class FichasPowerUps extends Ficha
         fichaIteracion.setType(c[tipo]);
     }
 
+    /**
+     * 
+     * @param fichitas
+     * @param pos
+     * @param id
+     * @return
+     */
     protected static boolean transformar(ArrayList<FichasTipos> fichitas, Point pos, int id)
     {
         FichasTipos aux = null;

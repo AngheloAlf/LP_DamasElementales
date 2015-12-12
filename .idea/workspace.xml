@@ -7,17 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef410dcd-52e6-4373-ba4a-9b1f257a8bc3" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/TLP/Main.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TLP/com/tlp/Ficha.class" afterPath="$PROJECT_DIR$/out/production/TLP/com/tlp/Ficha.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TLP/com/tlp/FichasPowerUps.class" afterPath="$PROJECT_DIR$/out/production/TLP/com/tlp/FichasPowerUps.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TLP/com/tlp/FichasTipos.class" afterPath="$PROJECT_DIR$/out/production/TLP/com/tlp/FichasTipos.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TLP/com/tlp/Tablero.class" afterPath="$PROJECT_DIR$/out/production/TLP/com/tlp/Tablero.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/tlp/Ficha.java" afterPath="$PROJECT_DIR$/src/com/tlp/Ficha.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/tlp/FichasPowerUps.java" afterPath="$PROJECT_DIR$/src/com/tlp/FichasPowerUps.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/tlp/FichasTipos.java" afterPath="$PROJECT_DIR$/src/com/tlp/FichasTipos.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/tlp/Tablero.java" afterPath="$PROJECT_DIR$/src/com/tlp/Tablero.java" />
     </list>
     <ignored path="LP_DamasElementales.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,18 +32,9 @@
       <file leaf-file-name="Ficha.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/tlp/Ficha.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.137931">
+            <state vertical-scroll-proportion="0.0">
               <caret line="27" column="26" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="26" />
-              <folding>
-                <element signature="e#656#657#0" expanded="true" />
-                <element signature="e#687#688#0" expanded="true" />
-                <element signature="e#864#865#0" expanded="true" />
-                <element signature="e#894#895#0" expanded="true" />
-                <element signature="e#999#1000#0" expanded="true" />
-                <element signature="e#1029#1030#0" expanded="true" />
-                <element signature="e#1184#1185#0" expanded="true" />
-                <element signature="e#1212#1213#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -81,7 +62,6 @@
                 <element signature="method#getColor#0;class#FichasTipos#0" expanded="false" />
                 <element signature="method#copyFicha#0;class#FichasTipos#0" expanded="false" />
                 <element signature="method#hacerListaFichas#0;class#FichasTipos#0" expanded="false" />
-                <element signature="e#5817#5830#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -90,26 +70,22 @@
       <file leaf-file-name="FichasPowerUps.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/tlp/FichasPowerUps.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6086956">
-              <caret line="37" column="74" selection-start-line="37" selection-start-column="74" selection-end-line="37" selection-end-column="74" />
+            <state vertical-scroll-proportion="0.3478261">
+              <caret line="166" column="7" selection-start-line="166" selection-start-column="7" selection-end-line="166" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1229#1230#0" expanded="true" />
-                <element signature="e#1263#1264#0" expanded="true" />
-                <element signature="e#1299#1300#0" expanded="true" />
-                <element signature="e#1334#1335#0" expanded="true" />
-                <element signature="e#1366#1367#0" expanded="true" />
-                <element signature="e#1400#1401#0" expanded="true" />
-                <element signature="e#1441#1442#0" expanded="true" />
-                <element signature="e#1475#1476#0" expanded="true" />
-                <element signature="e#1518#1519#0" expanded="true" />
-                <element signature="e#1552#1553#0" expanded="true" />
-                <element signature="e#1585#1586#0" expanded="true" />
-                <element signature="e#1618#1619#0" expanded="true" />
-                <element signature="e#1665#1666#0" expanded="true" />
-                <element signature="e#1703#1704#0" expanded="true" />
-                <element signature="e#1739#1740#0" expanded="true" />
-                <element signature="e#1775#1776#0" expanded="true" />
+                <element signature="docComment;method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+                <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+                <element signature="docComment;method#isActiva#0;class#FichasPowerUps#0" expanded="false" />
+                <element signature="docComment;method#deActivate#0;class#FichasPowerUps#0" expanded="false" />
+                <element signature="docComment;method#getType#0;class#FichasPowerUps#0" expanded="false" />
+                <element signature="docComment;method#setType#0;class#FichasPowerUps#0" expanded="false" />
+                <element signature="docComment;method#setDueno#0;class#FichasPowerUps#0" expanded="false" />
+                <element signature="docComment;method#getDueno#0;class#FichasPowerUps#0" expanded="false" />
+                <element signature="docComment;method#setContador#0;class#FichasPowerUps#0" expanded="false" />
+                <element signature="docComment;method#getContador#0;class#FichasPowerUps#0" expanded="false" />
+                <element signature="docComment;method#getColor#0;class#FichasPowerUps#0" expanded="false" />
+                <element signature="method#getColor#0;class#FichasPowerUps#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -232,9 +208,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -299,6 +273,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -590,7 +566,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -599,11 +575,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33911672" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33911672" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23133236" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -614,6 +589,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -654,22 +630,18 @@
           <caret line="92" column="30" selection-start-line="92" selection-start-column="30" selection-end-line="92" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1229#1230#0" expanded="true" />
-            <element signature="e#1263#1264#0" expanded="true" />
-            <element signature="e#1299#1300#0" expanded="true" />
-            <element signature="e#1334#1335#0" expanded="true" />
-            <element signature="e#1366#1367#0" expanded="true" />
-            <element signature="e#1400#1401#0" expanded="true" />
-            <element signature="e#1441#1442#0" expanded="true" />
-            <element signature="e#1475#1476#0" expanded="true" />
-            <element signature="e#1518#1519#0" expanded="true" />
-            <element signature="e#1552#1553#0" expanded="true" />
-            <element signature="e#1585#1586#0" expanded="true" />
-            <element signature="e#1618#1619#0" expanded="true" />
-            <element signature="e#1665#1666#0" expanded="true" />
-            <element signature="e#1703#1704#0" expanded="true" />
-            <element signature="e#1739#1740#0" expanded="true" />
-            <element signature="e#1775#1776#0" expanded="true" />
+            <element signature="docComment;method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#isActiva#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#deActivate#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getType#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setType#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setDueno#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getDueno#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setContador#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getContador#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getColor#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="method#getColor#0;class#FichasPowerUps#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -690,16 +662,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-          <folding>
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
-            <element signature="e#864#865#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#999#1000#0" expanded="true" />
-            <element signature="e#1029#1030#0" expanded="true" />
-            <element signature="e#1184#1185#0" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -725,7 +688,6 @@
             <element signature="method#getColor#0;class#FichasTipos#0" expanded="false" />
             <element signature="method#copyFicha#0;class#FichasTipos#0" expanded="false" />
             <element signature="method#hacerListaFichas#0;class#FichasTipos#0" expanded="false" />
-            <element signature="e#5817#5830#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -746,22 +708,18 @@
           <caret line="45" column="38" selection-start-line="45" selection-start-column="38" selection-end-line="45" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1229#1230#0" expanded="true" />
-            <element signature="e#1263#1264#0" expanded="true" />
-            <element signature="e#1299#1300#0" expanded="true" />
-            <element signature="e#1334#1335#0" expanded="true" />
-            <element signature="e#1366#1367#0" expanded="true" />
-            <element signature="e#1400#1401#0" expanded="true" />
-            <element signature="e#1441#1442#0" expanded="true" />
-            <element signature="e#1475#1476#0" expanded="true" />
-            <element signature="e#1518#1519#0" expanded="true" />
-            <element signature="e#1552#1553#0" expanded="true" />
-            <element signature="e#1585#1586#0" expanded="true" />
-            <element signature="e#1618#1619#0" expanded="true" />
-            <element signature="e#1665#1666#0" expanded="true" />
-            <element signature="e#1703#1704#0" expanded="true" />
-            <element signature="e#1739#1740#0" expanded="true" />
-            <element signature="e#1775#1776#0" expanded="true" />
+            <element signature="docComment;method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#isActiva#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#deActivate#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getType#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setType#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setDueno#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getDueno#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setContador#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getContador#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getColor#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="method#getColor#0;class#FichasPowerUps#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -782,16 +740,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
-            <element signature="e#864#865#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#999#1000#0" expanded="true" />
-            <element signature="e#1029#1030#0" expanded="true" />
-            <element signature="e#1184#1185#0" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -817,7 +766,6 @@
             <element signature="method#getColor#0;class#FichasTipos#0" expanded="false" />
             <element signature="method#copyFicha#0;class#FichasTipos#0" expanded="false" />
             <element signature="method#hacerListaFichas#0;class#FichasTipos#0" expanded="false" />
-            <element signature="e#5817#5830#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -826,16 +774,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
-            <element signature="e#864#865#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#999#1000#0" expanded="true" />
-            <element signature="e#1029#1030#0" expanded="true" />
-            <element signature="e#1184#1185#0" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -861,7 +800,6 @@
             <element signature="method#getColor#0;class#FichasTipos#0" expanded="false" />
             <element signature="method#copyFicha#0;class#FichasTipos#0" expanded="false" />
             <element signature="method#hacerListaFichas#0;class#FichasTipos#0" expanded="false" />
-            <element signature="e#5817#5830#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -872,22 +810,18 @@
           <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1229#1230#0" expanded="true" />
-            <element signature="e#1263#1264#0" expanded="true" />
-            <element signature="e#1299#1300#0" expanded="true" />
-            <element signature="e#1334#1335#0" expanded="true" />
-            <element signature="e#1366#1367#0" expanded="true" />
-            <element signature="e#1400#1401#0" expanded="true" />
-            <element signature="e#1441#1442#0" expanded="true" />
-            <element signature="e#1475#1476#0" expanded="true" />
-            <element signature="e#1518#1519#0" expanded="true" />
-            <element signature="e#1552#1553#0" expanded="true" />
-            <element signature="e#1585#1586#0" expanded="true" />
-            <element signature="e#1618#1619#0" expanded="true" />
-            <element signature="e#1665#1666#0" expanded="true" />
-            <element signature="e#1703#1704#0" expanded="true" />
-            <element signature="e#1739#1740#0" expanded="true" />
-            <element signature="e#1775#1776#0" expanded="true" />
+            <element signature="docComment;method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#isActiva#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#deActivate#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getType#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setType#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setDueno#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getDueno#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setContador#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getContador#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getColor#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="method#getColor#0;class#FichasPowerUps#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -908,16 +842,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding>
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
-            <element signature="e#864#865#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#999#1000#0" expanded="true" />
-            <element signature="e#1029#1030#0" expanded="true" />
-            <element signature="e#1184#1185#0" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -943,7 +868,6 @@
             <element signature="method#getColor#0;class#FichasTipos#0" expanded="false" />
             <element signature="method#copyFicha#0;class#FichasTipos#0" expanded="false" />
             <element signature="method#hacerListaFichas#0;class#FichasTipos#0" expanded="false" />
-            <element signature="e#5817#5830#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -954,22 +878,18 @@
           <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1229#1230#0" expanded="true" />
-            <element signature="e#1263#1264#0" expanded="true" />
-            <element signature="e#1299#1300#0" expanded="true" />
-            <element signature="e#1334#1335#0" expanded="true" />
-            <element signature="e#1366#1367#0" expanded="true" />
-            <element signature="e#1400#1401#0" expanded="true" />
-            <element signature="e#1441#1442#0" expanded="true" />
-            <element signature="e#1475#1476#0" expanded="true" />
-            <element signature="e#1518#1519#0" expanded="true" />
-            <element signature="e#1552#1553#0" expanded="true" />
-            <element signature="e#1585#1586#0" expanded="true" />
-            <element signature="e#1618#1619#0" expanded="true" />
-            <element signature="e#1665#1666#0" expanded="true" />
-            <element signature="e#1703#1704#0" expanded="true" />
-            <element signature="e#1739#1740#0" expanded="true" />
-            <element signature="e#1775#1776#0" expanded="true" />
+            <element signature="docComment;method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#isActiva#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#deActivate#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getType#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setType#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setDueno#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getDueno#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setContador#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getContador#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getColor#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="method#getColor#0;class#FichasPowerUps#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -990,16 +910,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
-          <folding>
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
-            <element signature="e#864#865#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#999#1000#0" expanded="true" />
-            <element signature="e#1029#1030#0" expanded="true" />
-            <element signature="e#1184#1185#0" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1025,7 +936,6 @@
             <element signature="method#getColor#0;class#FichasTipos#0" expanded="false" />
             <element signature="method#copyFicha#0;class#FichasTipos#0" expanded="false" />
             <element signature="method#hacerListaFichas#0;class#FichasTipos#0" expanded="false" />
-            <element signature="e#5817#5830#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1036,22 +946,18 @@
           <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1229#1230#0" expanded="true" />
-            <element signature="e#1263#1264#0" expanded="true" />
-            <element signature="e#1299#1300#0" expanded="true" />
-            <element signature="e#1334#1335#0" expanded="true" />
-            <element signature="e#1366#1367#0" expanded="true" />
-            <element signature="e#1400#1401#0" expanded="true" />
-            <element signature="e#1441#1442#0" expanded="true" />
-            <element signature="e#1475#1476#0" expanded="true" />
-            <element signature="e#1518#1519#0" expanded="true" />
-            <element signature="e#1552#1553#0" expanded="true" />
-            <element signature="e#1585#1586#0" expanded="true" />
-            <element signature="e#1618#1619#0" expanded="true" />
-            <element signature="e#1665#1666#0" expanded="true" />
-            <element signature="e#1703#1704#0" expanded="true" />
-            <element signature="e#1739#1740#0" expanded="true" />
-            <element signature="e#1775#1776#0" expanded="true" />
+            <element signature="docComment;method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#isActiva#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#deActivate#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getType#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setType#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setDueno#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getDueno#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setContador#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getContador#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getColor#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="method#getColor#0;class#FichasPowerUps#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1072,16 +978,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
-          <folding>
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
-            <element signature="e#864#865#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#999#1000#0" expanded="true" />
-            <element signature="e#1029#1030#0" expanded="true" />
-            <element signature="e#1184#1185#0" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1107,7 +1004,6 @@
             <element signature="method#getColor#0;class#FichasTipos#0" expanded="false" />
             <element signature="method#copyFicha#0;class#FichasTipos#0" expanded="false" />
             <element signature="method#hacerListaFichas#0;class#FichasTipos#0" expanded="false" />
-            <element signature="e#5817#5830#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1118,22 +1014,18 @@
           <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1229#1230#0" expanded="true" />
-            <element signature="e#1263#1264#0" expanded="true" />
-            <element signature="e#1299#1300#0" expanded="true" />
-            <element signature="e#1334#1335#0" expanded="true" />
-            <element signature="e#1366#1367#0" expanded="true" />
-            <element signature="e#1400#1401#0" expanded="true" />
-            <element signature="e#1441#1442#0" expanded="true" />
-            <element signature="e#1475#1476#0" expanded="true" />
-            <element signature="e#1518#1519#0" expanded="true" />
-            <element signature="e#1552#1553#0" expanded="true" />
-            <element signature="e#1585#1586#0" expanded="true" />
-            <element signature="e#1618#1619#0" expanded="true" />
-            <element signature="e#1665#1666#0" expanded="true" />
-            <element signature="e#1703#1704#0" expanded="true" />
-            <element signature="e#1739#1740#0" expanded="true" />
-            <element signature="e#1775#1776#0" expanded="true" />
+            <element signature="docComment;method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#isActiva#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#deActivate#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getType#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setType#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setDueno#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getDueno#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setContador#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getContador#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getColor#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="method#getColor#0;class#FichasPowerUps#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1154,16 +1046,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="38" column="4" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="4" />
-          <folding>
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
-            <element signature="e#864#865#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#999#1000#0" expanded="true" />
-            <element signature="e#1029#1030#0" expanded="true" />
-            <element signature="e#1184#1185#0" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1189,7 +1072,6 @@
             <element signature="method#getColor#0;class#FichasTipos#0" expanded="false" />
             <element signature="method#copyFicha#0;class#FichasTipos#0" expanded="false" />
             <element signature="method#hacerListaFichas#0;class#FichasTipos#0" expanded="false" />
-            <element signature="e#5817#5830#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1200,22 +1082,18 @@
           <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1229#1230#0" expanded="true" />
-            <element signature="e#1263#1264#0" expanded="true" />
-            <element signature="e#1299#1300#0" expanded="true" />
-            <element signature="e#1334#1335#0" expanded="true" />
-            <element signature="e#1366#1367#0" expanded="true" />
-            <element signature="e#1400#1401#0" expanded="true" />
-            <element signature="e#1441#1442#0" expanded="true" />
-            <element signature="e#1475#1476#0" expanded="true" />
-            <element signature="e#1518#1519#0" expanded="true" />
-            <element signature="e#1552#1553#0" expanded="true" />
-            <element signature="e#1585#1586#0" expanded="true" />
-            <element signature="e#1618#1619#0" expanded="true" />
-            <element signature="e#1665#1666#0" expanded="true" />
-            <element signature="e#1703#1704#0" expanded="true" />
-            <element signature="e#1739#1740#0" expanded="true" />
-            <element signature="e#1775#1776#0" expanded="true" />
+            <element signature="docComment;method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#isActiva#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#deActivate#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getType#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setType#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setDueno#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getDueno#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setContador#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getContador#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getColor#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="method#getColor#0;class#FichasPowerUps#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1236,16 +1114,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
-            <element signature="e#864#865#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#999#1000#0" expanded="true" />
-            <element signature="e#1029#1030#0" expanded="true" />
-            <element signature="e#1184#1185#0" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1271,7 +1140,6 @@
             <element signature="method#getColor#0;class#FichasTipos#0" expanded="false" />
             <element signature="method#copyFicha#0;class#FichasTipos#0" expanded="false" />
             <element signature="method#hacerListaFichas#0;class#FichasTipos#0" expanded="false" />
-            <element signature="e#5817#5830#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1282,22 +1150,18 @@
           <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1229#1230#0" expanded="true" />
-            <element signature="e#1263#1264#0" expanded="true" />
-            <element signature="e#1299#1300#0" expanded="true" />
-            <element signature="e#1334#1335#0" expanded="true" />
-            <element signature="e#1366#1367#0" expanded="true" />
-            <element signature="e#1400#1401#0" expanded="true" />
-            <element signature="e#1441#1442#0" expanded="true" />
-            <element signature="e#1475#1476#0" expanded="true" />
-            <element signature="e#1518#1519#0" expanded="true" />
-            <element signature="e#1552#1553#0" expanded="true" />
-            <element signature="e#1585#1586#0" expanded="true" />
-            <element signature="e#1618#1619#0" expanded="true" />
-            <element signature="e#1665#1666#0" expanded="true" />
-            <element signature="e#1703#1704#0" expanded="true" />
-            <element signature="e#1739#1740#0" expanded="true" />
-            <element signature="e#1775#1776#0" expanded="true" />
+            <element signature="docComment;method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#isActiva#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#deActivate#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getType#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setType#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setDueno#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getDueno#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setContador#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getContador#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getColor#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="method#getColor#0;class#FichasPowerUps#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1318,16 +1182,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding>
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
-            <element signature="e#864#865#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#999#1000#0" expanded="true" />
-            <element signature="e#1029#1030#0" expanded="true" />
-            <element signature="e#1184#1185#0" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1353,7 +1208,6 @@
             <element signature="method#getColor#0;class#FichasTipos#0" expanded="false" />
             <element signature="method#copyFicha#0;class#FichasTipos#0" expanded="false" />
             <element signature="method#hacerListaFichas#0;class#FichasTipos#0" expanded="false" />
-            <element signature="e#5817#5830#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1364,22 +1218,18 @@
           <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1229#1230#0" expanded="true" />
-            <element signature="e#1263#1264#0" expanded="true" />
-            <element signature="e#1299#1300#0" expanded="true" />
-            <element signature="e#1334#1335#0" expanded="true" />
-            <element signature="e#1366#1367#0" expanded="true" />
-            <element signature="e#1400#1401#0" expanded="true" />
-            <element signature="e#1441#1442#0" expanded="true" />
-            <element signature="e#1475#1476#0" expanded="true" />
-            <element signature="e#1518#1519#0" expanded="true" />
-            <element signature="e#1552#1553#0" expanded="true" />
-            <element signature="e#1585#1586#0" expanded="true" />
-            <element signature="e#1618#1619#0" expanded="true" />
-            <element signature="e#1665#1666#0" expanded="true" />
-            <element signature="e#1703#1704#0" expanded="true" />
-            <element signature="e#1739#1740#0" expanded="true" />
-            <element signature="e#1775#1776#0" expanded="true" />
+            <element signature="docComment;method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#isActiva#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#deActivate#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getType#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setType#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setDueno#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getDueno#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setContador#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getContador#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getColor#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="method#getColor#0;class#FichasPowerUps#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1400,16 +1250,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="51" column="24" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
-          <folding>
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
-            <element signature="e#864#865#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#999#1000#0" expanded="true" />
-            <element signature="e#1029#1030#0" expanded="true" />
-            <element signature="e#1184#1185#0" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1429,16 +1270,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
-            <element signature="e#864#865#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#999#1000#0" expanded="true" />
-            <element signature="e#1029#1030#0" expanded="true" />
-            <element signature="e#1184#1185#0" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1475,6 +1307,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$PROJECT_DIR$/src/com/tlp/lpengine.jar!/lp/motor/Element.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23351648">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/tlp/Tablero.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1482,31 +1321,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/tlp/Ficha.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.137931">
-          <caret line="27" column="26" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="26" />
-          <folding>
-            <element signature="e#656#657#0" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
-            <element signature="e#864#865#0" expanded="true" />
-            <element signature="e#894#895#0" expanded="true" />
-            <element signature="e#999#1000#0" expanded="true" />
-            <element signature="e#1029#1030#0" expanded="true" />
-            <element signature="e#1184#1185#0" expanded="true" />
-            <element signature="e#1212#1213#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/src/com/tlp/lpengine.jar!/lp/motor/Element.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23351648">
-          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1519,6 +1333,14 @@
             <element signature="method#update#0;class#Main#0" expanded="false" />
             <element signature="method#render#0;class#Main#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/tlp/Ficha.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="26" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1544,33 +1366,28 @@
             <element signature="method#getColor#0;class#FichasTipos#0" expanded="false" />
             <element signature="method#copyFicha#0;class#FichasTipos#0" expanded="false" />
             <element signature="method#hacerListaFichas#0;class#FichasTipos#0" expanded="false" />
-            <element signature="e#5817#5830#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/tlp/FichasPowerUps.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6086956">
-          <caret line="37" column="74" selection-start-line="37" selection-start-column="74" selection-end-line="37" selection-end-column="74" />
+        <state vertical-scroll-proportion="0.3478261">
+          <caret line="166" column="7" selection-start-line="166" selection-start-column="7" selection-end-line="166" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1229#1230#0" expanded="true" />
-            <element signature="e#1263#1264#0" expanded="true" />
-            <element signature="e#1299#1300#0" expanded="true" />
-            <element signature="e#1334#1335#0" expanded="true" />
-            <element signature="e#1366#1367#0" expanded="true" />
-            <element signature="e#1400#1401#0" expanded="true" />
-            <element signature="e#1441#1442#0" expanded="true" />
-            <element signature="e#1475#1476#0" expanded="true" />
-            <element signature="e#1518#1519#0" expanded="true" />
-            <element signature="e#1552#1553#0" expanded="true" />
-            <element signature="e#1585#1586#0" expanded="true" />
-            <element signature="e#1618#1619#0" expanded="true" />
-            <element signature="e#1665#1666#0" expanded="true" />
-            <element signature="e#1703#1704#0" expanded="true" />
-            <element signature="e#1739#1740#0" expanded="true" />
-            <element signature="e#1775#1776#0" expanded="true" />
+            <element signature="docComment;method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="method#FichasPowerUps#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#isActiva#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#deActivate#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getType#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setType#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setDueno#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getDueno#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#setContador#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getContador#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="docComment;method#getColor#0;class#FichasPowerUps#0" expanded="false" />
+            <element signature="method#getColor#0;class#FichasPowerUps#0" expanded="false" />
           </folding>
         </state>
       </provider>
