@@ -8,6 +8,10 @@ import java.util.ArrayList;
  */
 public class Tablero
 {
+    /**
+     * Se encarga de dibujar el tablero (entiendase las casillas negras y blancas)
+     * @param p Graphics para dibujar por pantalla
+     */
     public static void dibujarTablero(Graphics p)
     {
         boolean black=false;
@@ -29,6 +33,14 @@ public class Tablero
         }
     }
 
+    /**
+     * Metodo que se encarga de dibujar el tablero lateral
+     * @param p                 Graphics para dibujar por pantalla
+     * @param turnoJ1           True si es el turno del jugador 1, false en caso contrario
+     * @param fichitas          Lista que contiene todas las damas de ambos jugadores
+     * @param cantidadTurnos    Contador que tiene la cantidad de turnos de juego
+     * @param powerUpUsado      Recibe un PowerUp si fue tomado, o null si no se ha tomado alguno
+     */
     public static void dibujarPuntuacion(Graphics p, boolean turnoJ1, ArrayList<FichasTipos> fichitas, int cantidadTurnos, FichasPowerUps powerUpUsado)
     {
         p.setColor(Color.GRAY);
@@ -97,7 +109,13 @@ public class Tablero
         }
     }
 
-    public static void drawFicha(Graphics graphics, FichasTipos fichaIteracion, boolean j1, Point fichaPos)
+    /**
+     * Metodo que se encarga de dibujar una Dama por pantala
+     * @param graphics          Graphics para dibujar por pantalla
+     * @param fichaIteracion    La Dama que se dibujara
+     * @param fichaPos          La posicion en la cual se dibujara la ficha
+     */
+    private static void drawFicha(Graphics graphics, FichasTipos fichaIteracion, Point fichaPos)
     {
         if (fichaIteracion.isReina())
         {
@@ -109,7 +127,7 @@ public class Tablero
             graphics.setColor(fichaIteracion.getColor());
             graphics.fillOval(fichaPos.x, fichaPos.y, 30, 30);
         }
-        if (j1)
+        if (fichaIteracion.getID()%2 == 0)
         {
             graphics.setColor(Color.orange);
         } else {
@@ -118,13 +136,18 @@ public class Tablero
         graphics.fillOval(fichaPos.x+9, fichaPos.y+9, 12, 12);
     }
 
+    /**
+     * Metodo que se encarga de dibujar las damas de ambos jugadores
+     * @param graphics Graphics para dibujar por pantalla
+     * @param fichitas Lista que contiene todas las damas de ambos jugadores
+     */
     public static void dibujarFichas(Graphics graphics, ArrayList<FichasTipos> fichitas)
     {
         for (FichasTipos fichaIteracion: fichitas)
         {
             if (!fichaIteracion.isPressed() && !fichaIteracion.isComida())
             {
-                drawFicha(graphics, fichaIteracion, fichaIteracion.getID()%2 == 0, fichaIteracion.getPos());
+                drawFicha(graphics, fichaIteracion, fichaIteracion.getPos());
             }
             if (fichaIteracion.isPressed())
             {
@@ -134,19 +157,25 @@ public class Tablero
         }
     }
 
+    /**
+     * Metodo que se encarga de dibujar una ficha en la misma posicion que el mouse
+     * @param graphics  Graphics para dibujar por pantalla
+     * @param datos     Variable que contiene los datos de la dama
+     * @param pos       Posicion del mouse
+     */
     public static void dibujarFichaMouse(Graphics graphics, FichasTipos datos, Point pos)
     {
         if (datos.isPressed())
         {
-            if (datos.getID()%2 == 1)
-            {
-                drawFicha(graphics, datos, false, pos);
-            } else {
-                drawFicha(graphics, datos, true, pos);
-            }
+            drawFicha(graphics, datos, pos);
         }
     }
 
+    /**
+     * Metodo que se encarga de dibujar los PowerUps
+     * @param graphics      Graphics para dibujar por pantalla
+     * @param fichitasUps   Lista que contiene todos los PowerUps
+     */
     public static void dibujarPowerUps(Graphics graphics, ArrayList<FichasPowerUps> fichitasUps)
     {
         for (FichasPowerUps fichaIteracion: fichitasUps)
@@ -159,6 +188,13 @@ public class Tablero
         }
     }
 
+    /**
+     * Metodo que se encarga de tomar una ficha del tablero y asignarla al mouse, siempre y cuando sea una ficha del mismo jugador
+     * @param datos     Donde se almacenan los datos de la ficha del mouse. NO puede ser null
+     * @param aux       La ficha que se desea tomar
+     * @param turnoJ1   True si es el turno del jugador 1, false en caso contrario
+     * @return
+     */
     public static boolean tomarFicha(FichasTipos datos, FichasTipos aux, boolean turnoJ1)
     {
         if (aux != null)

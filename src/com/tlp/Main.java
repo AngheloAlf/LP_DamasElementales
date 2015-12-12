@@ -64,7 +64,7 @@ public class Main implements Context
                     }
                 }
             } else {
-                proceso = powerUpUsado.usarPowerUps(proceso, fichitas, datos, datos.getID(), pos, cantidadTurnos%2 == 1);
+                proceso = powerUpUsado.usarPowerUps(proceso, fichitas, datos, pos, cantidadTurnos%2 == 1);
             }
         }
     }

@@ -187,7 +187,7 @@ public class FichasTipos extends Ficha implements Element
     }
 
     /**
-     * Copia la ficha fichaIteracion a "this"
+     * Copia los datos que almacena la ficha fichaIteracion a "this"
      * @param fichaIteracion La ficha a ser copiada
      */
     protected void copyFicha(FichasTipos fichaIteracion)
@@ -202,6 +202,7 @@ public class FichasTipos extends Ficha implements Element
         } else {
             this.reina = false;
         }
+        this.setObligada(false);
     }
 
     /**

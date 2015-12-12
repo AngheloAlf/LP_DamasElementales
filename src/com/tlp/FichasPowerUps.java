@@ -164,11 +164,11 @@ public class FichasPowerUps extends Ficha
     }
 
     /**
-     * 
-     * @param fichitas
-     * @param pos
-     * @param id
-     * @return
+     * Transforma a la ficha enemiga en ficha propia
+     * @param fichitas Lista que contiene todas las fichas de ambos jugadores
+     * @param pos   Posicion del mouse
+     * @param id    Se usa para identificar al dueno de la dama
+     * @return      True si se pudo transformar de forma exitosa, o false en caso contrario
      */
     protected static boolean transformar(ArrayList<FichasTipos> fichitas, Point pos, int id)
     {
@@ -208,6 +208,11 @@ public class FichasPowerUps extends Ficha
         return false;
     }
 
+    /**
+     * Aleatoriamente agrega un PowerUp aleatorio en una posicion aleatoria. Mientras mas damas y PowerUps haya en pantalla, menos probable es que se ponga un PowerUp, y mientras menos damas y PowerUps hayan, mas probable es que se cree uno
+     * @param fichitas Lista que contiene todas las damas de ambos jugadores
+     * @param fichitasUps Lista que contiene todos los PowerUps.
+     */
     public static void agregarFichaRandom(ArrayList<FichasTipos> fichitas, ArrayList<FichasPowerUps> fichitasUps)
     {
         Random rand = new Random();
@@ -224,7 +229,7 @@ public class FichasPowerUps extends Ficha
 
         for (FichasTipos fichaIteracion: fichitas)
         {
-            if ((fichaIteracion.getPos().x == randomX) && (fichaIteracion.getPos().y == randomY))
+            if ((fichaIteracion.getPos().x == randomX) && (fichaIteracion.getPos().y == randomY) && !fichaIteracion.isComida())
             {
                 return;
             }
@@ -250,86 +255,102 @@ public class FichasPowerUps extends Ficha
         fichitasUps.add(nuevaFicha);
     }
 
+    /**
+     * Permite retroceder alguna de las damas del jugador
+     * @param fichitas  Lista de damas de ambos jugadores.
+     * @param datos     Variable auxiliar que contiene los datos de la dama que mueve el mouse
+     * @param pos       Posicion del mouse
+     * @param turnoJ1   True si es el turno del jugador 1, false en caso contrario
+     * @param turnoJ2   True si es el turno del jugador 2, false en caso contrario
+     * @return          False si termino la ejecucion del PowerUp, True en caso contrario
+     */
     protected boolean usarCero(ArrayList<FichasTipos> fichitas, FichasTipos datos, Point pos, boolean turnoJ1, boolean turnoJ2)
     {
         FichasTipos aux = Tablero.getFichasTipos(fichitas, pos.x, pos.y);
-        if (this.getContador()%2 == 1)
+        if ((this.getContador()%2 == 0) && (Tablero.tomarFicha(datos, aux, turnoJ2)))
         {
-            if (aux == null)
-            {
-                if (Tablero.placeFicha(fichitas, datos.getID(), pos, true, turnoJ1))
-                {
-                    this.setContador(getContador() + 1);
-                    datos.press(false);
-                    return false;
-                }
-            } else {
-                if (aux.isPressed())
-                {
-                    if (Tablero.placeFicha(fichitas, datos.getID(), pos, false, turnoJ1))
-                    {
+            this.setContador(this.getContador()+1);
+        } else {
+            if (this.getContador() % 2 == 1) {
+                if (aux == null) {
+                    if (Tablero.placeFicha(fichitas, datos.getID(), pos, true, turnoJ1)) {
+                        this.setContador(this.getContador() + 1);
                         datos.press(false);
+                        return false;
+                    }
+                } else {
+                    if (aux.isPressed()) {
+                        if (Tablero.placeFicha(fichitas, datos.getID(), pos, false, turnoJ1)) {
+                            datos.press(false);
+                            this.setContador(this.getContador() - 1);
+                        }
                     }
                 }
             }
         }
-        if ((this.getContador()%2 == 0) && (Tablero.tomarFicha(datos, aux, turnoJ2)))
-        {
-            this.setContador(getContador()+1);
-        }
         return true;
     }
 
-    public boolean usarPowerUps(boolean proceso, ArrayList<FichasTipos> fichitas, FichasTipos datos, int idF, Point pos, boolean turnoJ1)
+    /**
+     * Metodo que se encarga de ejecutar los PowerUps
+     * @param proceso   True si el PowerUp se sigue ejecutando, False si dejo de ejecutarse
+     * @param fichitas  La lista de damas de ambos jugadores
+     * @param datos     Variable auxiliar que contiene los datos de la dama que mueve el mouse
+     * @param pos       La posicion del mouse
+     * @param turnoJ1   True si es el turno del jugador 1, false en caso contrario
+     * @return          True si continua la ejecucion del PowerUp, false en caso contrario
+     */
+    public boolean usarPowerUps(boolean proceso, ArrayList<FichasTipos> fichitas, FichasTipos datos, Point pos, boolean turnoJ1)
     {
-        int tipo = this.getType();
-        if (tipo == 0)
+        if (proceso)
         {
-            if (!this.usarCero(fichitas, datos, pos, turnoJ1, !turnoJ1))
-            {
-                this.deActivate();
-                return false;
-            }
-        }
-        if (tipo == 1)
-        {
-            this.usarCero(fichitas, datos, pos, !turnoJ1, !turnoJ1);
-            if (this.getContador() == 6)
-            {
-                this.deActivate();
-                return false;
-            }
-        }
-        if (tipo == 2)
-        {
-            FichasTipos aux = Tablero.getFichasTipos(fichitas, pos.x, pos.y);
-            if ((aux !=null) && Tablero.detectarPosible(fichitas, aux.getPos(), turnoJ1) && (Tablero.tomarFicha(datos, aux, turnoJ1)))
-            {
-                datos.setObligada(true);
-                this.deActivate();
-                return false;
-            }
-        }
-        if (tipo == 3)
-        {
-            for (FichasTipos fichaIteracion: fichitas)
-            {
-                if (fichaIteracion.getID() == idF)
+            int tipo = this.getType();
+            if (tipo == 0) {
+                if (!this.usarCero(fichitas, datos, pos, turnoJ1, !turnoJ1))
                 {
-                    changeTypeFicha(fichaIteracion);
                     this.deActivate();
                     return false;
                 }
             }
-        }
-        if (tipo == 4)
-        {
-            pos.x = (pos.x / 60) * 60 + 15;
-            pos.y = (pos.y / 60) * 60 + 15;
-            if(transformar(fichitas, pos, this.getDueno()))
+            if (tipo == 1)
             {
-                this.deActivate();
-                return false;
+                this.usarCero(fichitas, datos, pos, !turnoJ1, !turnoJ1);
+                if (this.getContador() == 6)
+                {
+                    this.deActivate();
+                    return false;
+                }
+            }
+            if (tipo == 2)
+            {
+                FichasTipos aux = Tablero.getFichasTipos(fichitas, pos.x, pos.y);
+                if ((aux != null) && Tablero.detectarPosible(fichitas, aux.getPos(), turnoJ1) && (Tablero.tomarFicha(datos, aux, turnoJ1)))
+                {
+                    datos.setObligada(true);
+                    this.deActivate();
+                    return false;
+                }
+            }
+            if (tipo == 3)
+            {
+                for (FichasTipos fichaIteracion : fichitas)
+                {
+                    if (fichaIteracion.getID() == datos.getID())
+                    {
+                        changeTypeFicha(fichaIteracion);
+                        this.deActivate();
+                        return false;
+                    }
+                }
+            }
+            if (tipo == 4) {
+                pos.x = (pos.x / 60) * 60 + 15;
+                pos.y = (pos.y / 60) * 60 + 15;
+                if (transformar(fichitas, pos, this.getDueno()))
+                {
+                    this.deActivate();
+                    return false;
+                }
             }
         }
         return proceso;
