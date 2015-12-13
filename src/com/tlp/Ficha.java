@@ -24,7 +24,7 @@ public class Ficha
         this.id = id;
     }
 
-    /**
+    /** Obtiene la posicion almacenada en la ficha
      * @return      Entrega la posicion en pixeles de la ficha
      * */
     public Point getPos()
@@ -40,7 +40,7 @@ public class Ficha
         this.pos = pos;
     }
 
-    /**
+    /**Obtiene la ID almacenada en la ficha
      * @return      Retorna la ID almacenada en la ficha
      * */
     public int getID()

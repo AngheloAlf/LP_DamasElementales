@@ -6,6 +6,7 @@ import java.util.ArrayList;
 /**
  * Created by Anghelo on 08-Dec-15.
  */
+/**Clase que contiene todos los metodos relacionados al tablero*/
 public class Tablero
 {
     /**
@@ -193,7 +194,7 @@ public class Tablero
      * @param datos     Donde se almacenan los datos de la ficha del mouse. NO puede ser null
      * @param aux       La ficha que se desea tomar
      * @param turnoJ1   True si es el turno del jugador 1, false en caso contrario
-     * @return
+     * @return          True si la ficha pudo ser tomada con exito, false en caso contrario
      */
     public static boolean tomarFicha(FichasTipos datos, FichasTipos aux, boolean turnoJ1)
     {
@@ -215,16 +216,22 @@ public class Tablero
         return false;
     }
 
-    public static FichasTipos getFichasTipos(ArrayList<FichasTipos> fichitas, int posx, int posy)
+    /**
+     * Busca una dama en funcion de la posicion entregada
+     * @param fichitas  La lista de damas de ambos jugadores
+     * @param pos       La posicion del mouse
+     * @return          Si es que existe una dama en la posicion entregada, se retorna la dama, en caso contrario retorna null
+     */
+    public static FichasTipos getFichasTipos(ArrayList<FichasTipos> fichitas, Point pos)
     {
         Point fichaPos;
 
         for (FichasTipos fichaIteracion : fichitas)
         {
             fichaPos = fichaIteracion.getPos();
-            if (((fichaPos.x - 15) < posx) && (posx < (fichaPos.x + 45) ))
+            if (((fichaPos.x - 15) < pos.x) && (pos.x < (fichaPos.x + 45) ))
             {
-                if (((fichaPos.y - 15) < posy) && (posy < (fichaPos.y + 45) ))
+                if (((fichaPos.y - 15) < pos.y) && (pos.y < (fichaPos.y + 45) ))
                 {
                     return fichaIteracion;
                 }
@@ -233,6 +240,11 @@ public class Tablero
         return null;
     }
 
+    /**
+     * Convierte la posicion en pixeles a una posicion en pixeles en la que podria estar una dama
+     * @param newFichaPos   La posicion del mouse
+     * @return              La posicion arreglada y acercada a donde podria estar una ficha
+     */
     private static Point arreglarPos(Point newFichaPos)
     {
         newFichaPos.x = (newFichaPos.x/60)*60 + 15;
@@ -240,19 +252,32 @@ public class Tablero
         return newFichaPos;
     }
 
-    protected static void verificarCreacionReina(FichasTipos fichaIteracion, Point newFichaPos, int id)
+    /**
+     * Verifica si la dama se encuentra en una posicion apta como para transformse en reina, si es asi, se transforma en reina
+     * @param fichaIteracion    La dama la cual se verificara.
+     */
+    private static void verificarCreacionReina(FichasTipos fichaIteracion)
     {
-        if ((id%2 == 0) && (newFichaPos.y == 555))
+        if ((fichaIteracion.getID()%2 == 0) && (fichaIteracion.getPos().y == 555))
         {
             fichaIteracion.hacerReina();
         }
-        if ((id%2 == 1) && (newFichaPos.y == 15))
+        if ((fichaIteracion.getID()%2 == 1) && (fichaIteracion.getPos().y == 15))
         {
             fichaIteracion.hacerReina();
         }
     }
 
-    protected static boolean verificarComimiento(ArrayList<FichasTipos> fichitas, FichasTipos fichaIteracion, Point newFichaPos, int id, int jugador, int awayX)
+    /**
+     * Revisa si una dama puede comerse a otra dama
+     * @param fichitas          La lista de damas de ambos jugadores
+     * @param fichaIteracion    La dama que comera a otra dama
+     * @param newFichaPos       La posicion del mouse fixeada (ver arreglarPos)
+     * @param jugador           0 (cero) si es jugador1 o 1 (uno) si es jugador2
+     * @param awayX             Distancia entre la dama y donde se colocara (120 o -120)
+     * @return                  True si se logro comer a una ficha, false en caso contrario
+     */
+    private static boolean verificarComimiento(ArrayList<FichasTipos> fichitas, FichasTipos fichaIteracion, Point newFichaPos, int jugador, int awayX)
     {
         int away = 120;
         int otroJugador = 0;
@@ -275,7 +300,7 @@ public class Tablero
                 {
                     if (fichaCiclo.getID() % 2 == otroJugador)
                     {
-                        if (((newFichaPos.y + away == fichaIteracion.getPos().y) && (id % 2 == jugador)) || ((fichaIteracion.isReina()) && (newFichaPos.y - away == fichaIteracion.getPos().y)))
+                        if (((newFichaPos.y + away == fichaIteracion.getPos().y) && (fichaIteracion.getID() % 2 == jugador)) || ((fichaIteracion.isReina()) && (newFichaPos.y - away == fichaIteracion.getPos().y)))
                         {
                             Point nullPos = new Point(-1, -1);
                             if (fichaIteracion.testAgainst(fichaCiclo))
@@ -283,7 +308,7 @@ public class Tablero
                                 fichaCiclo.setPos(nullPos);
                                 fichaCiclo.comer();
                                 fichaIteracion.setPos(newFichaPos);
-                                verificarCreacionReina(fichaIteracion, newFichaPos, id);
+                                verificarCreacionReina(fichaIteracion);
                             } else {
                                 fichaIteracion.setPos(nullPos);
                                 fichaIteracion.comer();
@@ -298,6 +323,15 @@ public class Tablero
         return false;
     }
 
+    /**
+     * Pone una ficha en la posicion indicada, siempre y cuando sea valido el lugar en el cual se quiere dejar
+     * @param fichitas      Lista de todas las damas de ambos jugadores
+     * @param id            ID de la dama en cuestion
+     * @param newFichaPos   La nueva posicion donde se dejara la dama (posicion del mouse)
+     * @param valido        True para revisar que las jugadas sean validas, false en caso contrario
+     * @param jugador       True si es jugador1, false en caso contrario
+     * @return              True si se pudo mover la dama, false en caso contrario
+     */
     public static boolean placeFicha(ArrayList<FichasTipos> fichitas, int id, Point newFichaPos, boolean valido, boolean jugador)
     {
         if ((newFichaPos.x > 0) && (newFichaPos.x < 600) && ((newFichaPos.y > 0) && (newFichaPos.y < 600)))
@@ -317,7 +351,7 @@ public class Tablero
                                 {
                                     fichaIteracion.setPos(newFichaPos);
                                     fichaIteracion.press(false);
-                                    verificarCreacionReina(fichaIteracion, newFichaPos, id);
+                                    verificarCreacionReina(fichaIteracion);
                                     return true;
                                 }
                             }
@@ -326,25 +360,25 @@ public class Tablero
                                 {
                                     fichaIteracion.setPos(newFichaPos);
                                     fichaIteracion.press(false);
-                                    verificarCreacionReina(fichaIteracion, newFichaPos, id);
+                                    verificarCreacionReina(fichaIteracion);
                                     return true;
                                 }
                             }
                         }
 
-                        if (verificarComimiento(fichitas, fichaIteracion, newFichaPos, id, 0, 120))
+                        if (verificarComimiento(fichitas, fichaIteracion, newFichaPos, 0, 120))
                         {
                             return true;
                         }
-                        if (verificarComimiento(fichitas, fichaIteracion, newFichaPos, id, 0, -120))
+                        if (verificarComimiento(fichitas, fichaIteracion, newFichaPos, 0, -120))
                         {
                             return true;
                         }
-                        if (verificarComimiento(fichitas, fichaIteracion, newFichaPos, id, 1, 120))
+                        if (verificarComimiento(fichitas, fichaIteracion, newFichaPos, 1, 120))
                         {
                             return true;
                         }
-                        if (verificarComimiento(fichitas, fichaIteracion, newFichaPos, id, 1, -120))
+                        if (verificarComimiento(fichitas, fichaIteracion, newFichaPos, 1, -120))
                         {
                             return true;
                         }
@@ -360,6 +394,12 @@ public class Tablero
         return false;
     }
 
+    /**
+     * Detecta la colision entre una dama y algun PowerUp
+     * @param fichitas      Lista que contiene las damas de ambos jugadores
+     * @param fichitasUps   Lista que contiene los PowerUps
+     * @return              Retorna el PowerUp que colisiono con la dama, o null si ninguno colisiono
+     */
     public static FichasPowerUps detectarColisionFichas(ArrayList<FichasTipos> fichitas, ArrayList<FichasPowerUps> fichitasUps)
     {
         for (FichasTipos fichaIteracion: fichitas)
@@ -378,6 +418,13 @@ public class Tablero
         return null;
     }
 
+    /**
+     * Revisa si la dama puede moverse (no incluye la posibilidad de comer)
+     * @param fichitas  Lista de todas las damas de ambos jugadores
+     * @param pos       Posicion de la dama
+     * @param turnoJ1   True si es jugador 1, false en caso contrario
+     * @return          True si la dama seleccionada se podria mover de forma normal, false en caso contrario
+     */
     protected static boolean detectarPosible(ArrayList<FichasTipos> fichitas, Point pos, boolean turnoJ1)
     {
         int contador = 0;

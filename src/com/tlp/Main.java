@@ -32,7 +32,7 @@ public class Main implements Context
         {
             if (!proceso)
             {
-                aux = Tablero.getFichasTipos(fichitas, pos.x, pos.y);
+                aux = Tablero.getFichasTipos(fichitas, pos);
                 if (!datos.isPressed())
                 {
                     Tablero.tomarFicha(datos, aux, cantidadTurnos%2 == 1);

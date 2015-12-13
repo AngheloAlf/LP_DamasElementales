@@ -266,7 +266,7 @@ public class FichasPowerUps extends Ficha
      */
     protected boolean usarCero(ArrayList<FichasTipos> fichitas, FichasTipos datos, Point pos, boolean turnoJ1, boolean turnoJ2)
     {
-        FichasTipos aux = Tablero.getFichasTipos(fichitas, pos.x, pos.y);
+        FichasTipos aux = Tablero.getFichasTipos(fichitas, pos);
         if ((this.getContador()%2 == 0) && (Tablero.tomarFicha(datos, aux, turnoJ2)))
         {
             this.setContador(this.getContador()+1);
@@ -323,8 +323,8 @@ public class FichasPowerUps extends Ficha
             }
             if (tipo == 2)
             {
-                FichasTipos aux = Tablero.getFichasTipos(fichitas, pos.x, pos.y);
-                if ((aux != null) && Tablero.detectarPosible(fichitas, aux.getPos(), turnoJ1) && (Tablero.tomarFicha(datos, aux, turnoJ1)))
+                FichasTipos aux = Tablero.getFichasTipos(fichitas, pos);
+                if ((aux != null) && (Tablero.detectarPosible(fichitas, aux.getPos(), turnoJ1)) && (Tablero.tomarFicha(datos, aux, turnoJ1)))
                 {
                     datos.setObligada(true);
                     this.deActivate();

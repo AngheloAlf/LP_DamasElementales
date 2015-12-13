@@ -35,8 +35,9 @@ public class FichasTipos extends Ficha implements Element
         this.tipo = tipo;
     }
 
+    /**Retorna el tipo almacenado en la dama
+     * @return Retorna el tipo almacenado en la dama*/
     @Override
-    /**@return Retorna el tipo almacenado en la dama*/
     public Type getType()
     {
         return this.tipo;
@@ -64,12 +65,12 @@ public class FichasTipos extends Ficha implements Element
         return -1;
     }
 
-    @Override
     /**
      * Revisa quien gana entre tu dama y la dama enemiga
      * @param element   Dama enemiga
      * @return          Retorna true si gana a la dama enemiga, o false si pierde
      */
+    @Override
     public boolean testAgainst(Element element)
     {
         if (element != null)
@@ -202,7 +203,7 @@ public class FichasTipos extends Ficha implements Element
         } else {
             this.reina = false;
         }
-        this.setObligada(false);
+        this.setObligada(fichaIteracion.isObligada());
     }
 
     /**
