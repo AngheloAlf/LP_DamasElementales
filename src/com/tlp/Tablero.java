@@ -247,9 +247,10 @@ public class Tablero
      */
     private static Point arreglarPos(Point newFichaPos)
     {
-        newFichaPos.x = (newFichaPos.x/60)*60 + 15;
-        newFichaPos.y = (newFichaPos.y/60)*60 + 15;
-        return newFichaPos;
+        Point posFix = new Point();
+        posFix.x = (newFichaPos.x/60)*60 + 15;
+        posFix.y = (newFichaPos.y/60)*60 + 15;
+        return posFix;
     }
 
     /**
@@ -275,9 +276,9 @@ public class Tablero
      * @param newFichaPos       La posicion del mouse fixeada (ver arreglarPos)
      * @param jugador           0 (cero) si es jugador1 o 1 (uno) si es jugador2
      * @param awayX             Distancia entre la dama y donde se colocara (120 o -120)
-     * @return                  True si se logro comer a una ficha, false en caso contrario
+     * @return                  La dama que sera comida, o null si no encontro ninguna
      */
-    private static boolean verificarComimiento(ArrayList<FichasTipos> fichitas, FichasTipos fichaIteracion, Point newFichaPos, int jugador, int awayX)
+    private static FichasTipos verificarComimiento(ArrayList<FichasTipos> fichitas, FichasTipos fichaIteracion, Point newFichaPos, int jugador, int awayX)
     {
         int away = 120;
         int otroJugador = 0;
@@ -285,11 +286,6 @@ public class Tablero
         {
             away = -120;
             otroJugador = 1;
-        }
-        if (jugador == 1)
-        {
-            away = 120;
-            otroJugador = 0;
         }
 
         if (newFichaPos.x + awayX == fichaIteracion.getPos().x)
@@ -302,25 +298,35 @@ public class Tablero
                     {
                         if (((newFichaPos.y + away == fichaIteracion.getPos().y) && (fichaIteracion.getID() % 2 == jugador)) || ((fichaIteracion.isReina()) && (newFichaPos.y - away == fichaIteracion.getPos().y)))
                         {
-                            Point nullPos = new Point(-1, -1);
-                            if (fichaIteracion.testAgainst(fichaCiclo))
-                            {
-                                fichaCiclo.setPos(nullPos);
-                                fichaCiclo.comer();
-                                fichaIteracion.setPos(newFichaPos);
-                                verificarCreacionReina(fichaIteracion);
-                            } else {
-                                fichaIteracion.setPos(nullPos);
-                                fichaIteracion.comer();
-                            }
-                            fichaIteracion.press(false);
-                            return true;
+                            return fichaCiclo;
                         }
                     }
                 }
             }
         }
-        return false;
+        return null;
+    }
+
+    /**
+     * Hace que la dama fichaIteracion se coma a la dama fichaCiclo (siempre y cuando le gane segun el tipo)
+     * @param fichaIteracion    La dama que va a comer
+     * @param fichaCiclo        La ficha que va a ser comida
+     * @param newFichaPos       La nueva posicionde la ficha
+     */
+    private static void comerALaOtraDama(FichasTipos fichaIteracion, FichasTipos fichaCiclo, Point newFichaPos)
+    {
+        Point nullPos = new Point(-1, -1);
+        if (fichaIteracion.testAgainst(fichaCiclo))
+        {
+            fichaCiclo.setPos(nullPos);
+            fichaCiclo.comer();
+            fichaIteracion.setPos(newFichaPos);
+            verificarCreacionReina(fichaIteracion);
+        } else {
+            fichaIteracion.setPos(nullPos);
+            fichaIteracion.comer();
+        }
+        fichaIteracion.press(false);
     }
 
     /**
@@ -366,22 +372,28 @@ public class Tablero
                             }
                         }
 
-                        if (verificarComimiento(fichitas, fichaIteracion, newFichaPos, 0, 120))
+                        FichasTipos fichaCiclo;
+                        if ((fichaCiclo = verificarComimiento(fichitas, fichaIteracion, newFichaPos, 0, 120)) != null)
                         {
+                            comerALaOtraDama(fichaIteracion, fichaCiclo, newFichaPos);
                             return true;
                         }
-                        if (verificarComimiento(fichitas, fichaIteracion, newFichaPos, 0, -120))
+                        if ((fichaCiclo = verificarComimiento(fichitas, fichaIteracion, newFichaPos, 0, -120)) != null)
                         {
+                            comerALaOtraDama(fichaIteracion, fichaCiclo, newFichaPos);
                             return true;
                         }
-                        if (verificarComimiento(fichitas, fichaIteracion, newFichaPos, 1, 120))
+                        if ((fichaCiclo = verificarComimiento(fichitas, fichaIteracion, newFichaPos, 1, 120)) != null)
                         {
+                            comerALaOtraDama(fichaIteracion, fichaCiclo, newFichaPos);
                             return true;
                         }
-                        if (verificarComimiento(fichitas, fichaIteracion, newFichaPos, 1, -120))
+                        if ((fichaCiclo = verificarComimiento(fichitas, fichaIteracion, newFichaPos, 1, -120)) != null)
                         {
+                            comerALaOtraDama(fichaIteracion, fichaCiclo, newFichaPos);
                             return true;
                         }
+
 
                     } else {
                         fichaIteracion.setPos(newFichaPos);
