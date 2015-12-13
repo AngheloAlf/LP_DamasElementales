@@ -35,6 +35,33 @@ public class Tablero
     }
 
     /**
+     * Calcula el puntaje obtenido por ambos jugadores
+     * @param fichitas  La lista de las damas de ambos jugadores
+     * @return          Un arreglo de 2 enteros. La primera posicion contiene los puntos del jugador 1 y la segunda posicion contiene los puntos del jugador 2
+     */
+    public static int[] obtenerPuntaje(ArrayList<FichasTipos> fichitas)
+    {
+        int puntos1 = 0;
+        int puntos2 = 0;
+        for (FichasTipos fichaIteracion: fichitas)
+        {
+            if(fichaIteracion.isComida())
+            {
+                if(fichaIteracion.getID()%2 == 1)
+                {
+                    puntos1 += 1;
+                } else {
+                    puntos2 += 1;
+                }
+            }
+        }
+        int puntos[] = new int[2];
+        puntos[0] = puntos1;
+        puntos[1] = puntos2;
+        return puntos;
+    }
+
+    /**
      * Metodo que se encarga de dibujar el tablero lateral
      * @param p                 Graphics para dibujar por pantalla
      * @param turnoJ1           True si es el turno del jugador 1, false en caso contrario
@@ -53,25 +80,12 @@ public class Tablero
 
         p.drawString("Turno    "+cantidadTurnos, 620, 390);
 
-        int puntos1 = 0;
-        int puntos2 = 0;
-        for (FichasTipos fichaIteracion: fichitas)
-        {
-            if(fichaIteracion.isComida())
-            {
-                if(fichaIteracion.getID()%2 == 1)
-                {
-                    puntos1 += 1;
-                } else {
-                    puntos2 += 1;
-                }
-            }
-        }
+        int puntos[] = obtenerPuntaje(fichitas);
 
         p.drawString("Fichas comidas: ", 630, 50);
-        p.drawString(String.valueOf(puntos1), 730, 50);
+        p.drawString(String.valueOf(puntos[0]), 730, 50);
         p.drawString("Fichas comidas: ", 630, 550);
-        p.drawString(String.valueOf(puntos2), 730, 550);
+        p.drawString(String.valueOf(puntos[1]), 730, 550);
 
         if ((powerUpUsado != null) && (powerUpUsado.isActiva()))
         {
@@ -442,22 +456,57 @@ public class Tablero
         int contador = 0;
         for(FichasTipos fichaIteracion: fichitas)
         {
-            if ((fichaIteracion.getPos().x+60 == pos.x) || (fichaIteracion.getPos().x-60 == pos.x))
+            if ((fichaIteracion.getPos().x + 60 == pos.x) || (fichaIteracion.getPos().x - 60 == pos.x))
             {
-                if ((turnoJ1) && (fichaIteracion.getPos().y-60 == pos.y))
+                if (!fichaIteracion.isReina())
                 {
-                    contador += 1;
-                }
-                if ((!turnoJ1) && (fichaIteracion.getPos().y+60 == pos.y))
-                {
-                    contador += 1;
-                }
-                if (contador == 2)
-                {
-                    return false;
+                    if ((turnoJ1) && (fichaIteracion.getPos().y - 60 == pos.y)) {
+                        contador += 1;
+                    }
+                    if ((!turnoJ1) && (fichaIteracion.getPos().y + 60 == pos.y)) {
+                        contador += 1;
+                    }
+                    if (contador == 2) {
+                        return false;
+                    }
                 }
             }
         }
         return true;
+    }
+
+    /**
+     * Detecta cuando a alguno de los 2 jugadores se quedo sin damas
+     * @param fichitas  La lista que contiene las damas de ambos jugadores
+     * @return          -1 (uno negativo) si nadie ha ganado. 0 (cero) si gano el jugador1. 1 (uno) si gano el jugador2
+     */
+    public static int detectarVictoria(ArrayList<FichasTipos> fichitas)
+    {
+        boolean contador0 = false;
+        boolean contador1 = false;
+        for(FichasTipos fichaIteracion: fichitas)
+        {
+            if ((!contador1) && (fichaIteracion.getID()%2 == 0))
+            {
+                contador1 = true;
+            }
+            if ((!contador0) && (fichaIteracion.getID()%2 == 1))
+            {
+                contador0 = true;
+            }
+            if (contador1 && contador0)
+            {
+                break;
+            }
+        }
+        if (contador1 && !contador0)
+        {
+            return 0;
+        }
+        if (!contador1 && contador0)
+        {
+            return 1;
+        }
+        return -1;
     }
 }
